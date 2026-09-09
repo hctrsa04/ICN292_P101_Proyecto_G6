@@ -11,10 +11,30 @@ Dentro del presente repositorio se encontrará todo tipo de documentos que confo
 
 ## 2. Qué encontrará en cada carpeta
 
-
+El repositorio está dividido en diversas carpetas, las cuales poseen distintos aspecto relevantes del proyecto en si mismos. Se define a continuación cada una de estas:
+- ***"docs/00-caso-pyme.md"***. Donde se describirá a detalle la PYME escogida y la problemática identificada en su actual modalidad de trabajo.
+- ***"docs/01-requerimientos.md"***. Aquí se encuentran descritos los **Requerimientos Funcionales** y los **No Funcionales** de la PYME (RF y RNF, respectivamente). 
+- ***"docs/02-bpmn.md"***. Diagrama de procesos del negocio, BPMN. Se hallará tanto en diagrama AS-IS (como se hace actualmente), como el TO-BE (propuesta del grupo) con su respectiva explicación.
+- ***"docs/03-er-preliminar.md"***. Aquí se encontrará el diagrama entidad-relación con la explicación correspondiente del mismo.
+- ***"assets/"***. Archivos **.png** de los diferentes diagramas de procesos realizados, usada para referenciar.
+- ***"informe/"***. Donde se ubica el informe final en formato PDF y Word/LaTex.
 
 ## 3. Cómo se relaciona con la segunda entrega 
 
+
+
 ## 4. Integrantes y roles
 
+Cada integrante estuvo a cargo de las siguientes tareas:
+
+| Integrante | Responsable de |
+|-|-|
+| Matías Castro | ddd |
+| Ricardo García | ddd |
+| Iván Gonzalez | Apartados C y D del proyecto |
+| Héctor Sánchez | Creación y orden del repositorio, apartado E del proyecto |
+| Diego Victoriano | ddd |
+
 ## 5. Rutas relevantes
+
+Para ver el informe en los formatos solicitados dirigirse a(./informe/)
