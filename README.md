@@ -37,4 +37,6 @@ Cada integrante estuvo a cargo de las siguientes tareas:
 
 ## 5. Rutas relevantes
 
-Para ver el informe en los formatos solicitados dirigirse a(./informe/)
+Para ver el informe en los formatos solicitados dirigirse a ["Informe/"](./informe/).
+- Link de entrega en aula: 
+
