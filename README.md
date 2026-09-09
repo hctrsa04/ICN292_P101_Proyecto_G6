@@ -5,7 +5,7 @@ Dentro del presente repositorio se encontrará todo tipo de documentos que confo
 ## 1. La PYME y sus problemáticas
 
 - ***Nombre de la PYME escogida***. A lo largo de todo el semestre se desarrollará el proyecto con la ayuda de **Alta Facha**.
-- ***Rubro/Industria***. Esta PYME se desempeña en la comprar y venta de prendas de ropa femenina, principalmente vestidos.
+- ***Rubro/Industria***. Esta PYME se desempeña en la compra y venta de prendas de ropa femenina, principalmente vestidos.
 - ***Problema del negocio***. Dentro de las conversaciones que se tuvo con la dueña de la PYME, se acordó que la mayor problemática se basa en la falta de uso de Sistemas de Información para llevar de registro de inventario, ventas, clientes, entre otros. Esto repercute en la ausencia de kpi.
 - ***Objetivo de proyecto***. Con la problemática definida se busca apoyar a Alta Facha a automatizar este tipo de registros, con tal de poder mapear más claramente sus ingresos, cuánto inventario va quedando, el estado de sus pedidos o la eficiencia de su negocio sin la necesidad de cálculos a mano cada vez que se requieran. 
 
@@ -37,6 +37,6 @@ Cada integrante estuvo a cargo de las siguientes tareas:
 
 ## 5. Rutas relevantes
 
-Para ver el informe en los formatos solicitados dirigirse a ["Informe/"](./informe/).
+Para ver el informe en los formatos solicitados dirigirse a ["Informe"](./informe/).
 - Link de entrega en aula: 
 
