@@ -1,4 +1,3 @@
-[Plan_entrega_2_y_riesgos.md](https://github.com/user-attachments/files/32128203/Plan_entrega_2_y_riesgos.md)
 
 # G. Plan de entrega 2 y riesgos a considerar
 
