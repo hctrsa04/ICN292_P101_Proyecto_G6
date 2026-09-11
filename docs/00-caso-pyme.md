@@ -3,7 +3,11 @@
 
 ## 1. Descripción de la PYME
 
-**Alta Facha** es una pyme con alrededor de **tres años de existencia**, que se dedica principalmente a la **compra y venta de prendas de ropa femenina** (vestidos y abrigos), con reciente intención de extenderse al vestuario masculino. Actualmente, la empresa no se encuentra formalizada, pero su dueña (Belén) demuestra una clara intención de querer concretar este hito a la brevedad por motivos que beneficiarían su causa, como la posibilidad de optar a la venta al crédito y solicitar créditos a entidades bancarias con mayor facilidad.
+Nombre del emprendimiento: Alta Facha, 
+Rubro: Venta de vestuario femenino a través de redes sociales. 
+Tamaño aproximado: Emprendimiento unipersonal. 
+Ubicación: Santiago, las condes. 
+
 
 ## 2. Modelo de operación actual
 
