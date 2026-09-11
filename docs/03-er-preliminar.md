@@ -35,7 +35,7 @@ No solo es importante reconocer las entidades que participan de este proceso, ta
 
 Esta descripción del proceso To-Be respalda directamente el diseño del ER preliminar:
 
-- La generación de **fichas individuales por prenda** al ingresar el lote justifica que `Prenda` sea una entidad con identidad propia (id_prenda), y no simplemente una cantidad dentro de un lote genérico.
-- El **registro de cliente** en paralelo al registrar la venta confirma que `Cliente` debe capturarse en el momento del `Pedido`, coherente con la FK `id_cliente` en `Pedido`.
-- El **descuento de inventario** automático depende del atributo `estado` de `Prenda`, que permite distinguir entre disponible/vendida/rematada.
-- La **alerta de remate** generada por el evento temporizador se apoya en poder calcular días sin venta por prenda — esto sugiere que `Prenda` necesitaría un atributo de fecha (ej. `fecha_ingreso`) para que el sistema pueda calcular cuántos días lleva sin venderse.
+- La generación de **fichas individuales por prenda** al ingresar el lote justifica que *Prenda* sea una entidad con identidad propia (*id_prenda*), y no simplemente una cantidad dentro de un lote genérico.
+- El **registro de cliente** en paralelo al registrar la venta confirma que *Cliente* debe capturarse en el momento del *Pedido*, coherente con la FK *id_cliente* en *Pedido*.
+- El **descuento de inventario** automático depende del atributo *estado* de *Prenda*, que permite distinguir entre disponible/vendida/rematada.
+- La **alerta de remate** generada por el evento temporizador se apoya en poder calcular días sin venta por prenda, esto sugiere que *Prenda* necesitaría un atributo de fecha (ej. *fecha_ingreso*) para que el sistema pueda calcular cuántos días lleva sin venderse.
