@@ -1,5 +1,5 @@
-# Diagrama Entidad-Relación (Preliminar)
-## 1. Entidades y atributos
+# E. Diagrama Entidad-Relación (Preliminar)
+## E.1 Entidades y atributos
 
 A partir de la entrevista con la dueña de la PYME se pudo reconocer que los actores principales dentro del proceso productivo (con sus respectivos atributos) son: 
 
@@ -19,7 +19,7 @@ Lo que en palabras sería:
 - Cliente: Un código identificador para cada cliente que entrega el nombre y contacto del usuario.
 - Pedido: Un código identificador para cada pedido, asociado con un cliente que solicitó uno o muchos productos en cierta fecha, en el canal de venta correspondiente y que dependiendo de su ubicación geográfica en la ciudad o alrededores se le asigna un envío por parte de la propia dueña o una agencia especialista.
 
-## 2. Relación entre entidades (Cardinalidad)
+## E.2 Relación entre entidades (Cardinalidad)
 
 No solo es importante reconocer las entidades que participan de este proceso, tampoco basta con destacar sus atributos relevantes, sino que también es de suma importancia reconocer cómo es que se relacionan entre sí, si existe algún tipo de relación. Por lo mismo, a continuación se reconocerá la cardinalidad en la interacción entre entidades:
 
@@ -31,7 +31,7 @@ No solo es importante reconocer las entidades que participan de este proceso, ta
   2. Dado otro caso, la entrega del pedido será confiada a una empresa de servicios de paquetería.
 - Con esto en mente, se entiende entonces que un distribuidor puede estar a cargo de más de un pedido, sin embargo, un pedido puede estar a cargo de una única o ninguna empresa de repartos.
 
-## 3. Justificación con el modelo BPMN
+## E.3 Justificación con el modelo BPMN
 
 Esta descripción del proceso To-Be respalda directamente el diseño del ER preliminar:
 
