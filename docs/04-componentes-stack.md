@@ -1,4 +1,4 @@
-# Arquitectura lógica y stack tentativo
+# F. Arquitectura lógica y stack tentativo
 
 ## Enfoque de la solución
 
