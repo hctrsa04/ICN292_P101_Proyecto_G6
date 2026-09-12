@@ -33,16 +33,16 @@ El problema central de la Pyme radica en la falta de un sistema estructurado e i
 Esta deficiencia de control se traduce en impactos directos, tanto a nivel operativo como económico. En el ámbito comercial, la ausencia de una trazabilidad unificada vulnera la precisión del inventario, ocasionando inconsistencias críticas de cara al cliente, como la venta duplicada de un mismo artículo. A nivel financiero, la Pyme opera bajo un escenario de incertidumbre donde no existe la capacidad de determinar con certeza la facturación periódica ni de calcular los márgenes reales de utilidad bruta y neta del negocio. 
 
 ## 6. Objetivo del SIG propuesto
-El objetivo general propuesto es realizar un sistema de información de inventario y ventas automatizado, automatice el descuento de stock tras hacer una venta, calcule los márgenes y realice el balance mensual. Con el fin de eliminar las ventas sin stock y tener una visión más claras de los números y el balance. 
+El objetivo general propuesto es desarrollar un sistema de información de inventario y ventas que automatice el descuento de stock tras cada transacción, calcule los márgenes y realice el balance mensual. Esto tiene como finalidad erradicar las ventas de productos sin stock y proporcionar una visión clara y precisa del estado financiero del negocio.
 
 Dentro de los objetivos específicos se encuentran los siguientes aspectos: 
 
--Mantener un registro de prendas único, que contenga talla, cantidad, costo de compra, valor de venta, entre otros. 
+-Mantener un registro de prendas único y centralizado, que contenga atributos clave como talla, cantidad, costo de compra, valor de venta, entre otros. 
 
--Automatizar el descuento de inventario, de modo que se pueda modificar de forma automática sin la necesidad de intervenir de forma continua manualmente. 
+-Automatizar la actualización del inventario, de modo que se pueda modificar de forma automática sin la necesidad de intervención manual continua.
 
--Generar alertas de stock crítico, para evitar problemas de stock. 
+-Generar alertas de stock crítico, para anticipar y evitar quiebres de inventario.
 
--Obtener gráficas de márgenes por cada venta y márgenes generales, productos más vendidos y otros indicadores. 
+-Obtener gráficas de márgenes por cada venta y márgenes generales, así como visualizar los productos más vendidos y otros indicadores clave de desempeño.
   
 
