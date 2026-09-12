@@ -1,4 +1,4 @@
-# Caso: Alta Facha
+# B. Caso: Alta Facha
 
 
 ## 1. Descripción de la PYME
