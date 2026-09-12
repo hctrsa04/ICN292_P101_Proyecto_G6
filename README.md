@@ -39,5 +39,5 @@ Cada integrante estuvo a cargo de las siguientes tareas:
 
 ## 5. Rutas relevantes
 
-Link de entrega en aula: 
+Link de entrega en aula: https://aula.usm.cl/mod/assign/view.php?id=8305260&action=view
 
