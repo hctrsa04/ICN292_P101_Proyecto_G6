@@ -6,13 +6,13 @@ El proceso actual se modela con tres participantes correspondientes a Alta Facha
 
 El flujo inicia con la recepción de un lote, se planchan las prendas, se toman fotografías y se publica manualmente en Instagram. El proceso queda en espera hasta que el cliente contacta por DM, Belén atiende la consulta, acuerda la venta, coordina el despacho con el distribuidor y, al confirmar entrega, registra la venta en una planilla Excel.
 
-*(Insertar diagrama AS-IS desde `assets/`)*
+![BPMN As-Is](../assets/BPMN%20Alta%20Facha%20As-Is.png)
 
 ## D.2 BPMN To-Be con la intervención del SIG
 
 El flujo To-Be conserva ciertas tareas de Belén e intercala tareas automáticas del Sistema de Información de Gestión (SIG) en los puntos donde antes no existía registro. Por ejemplo, al ingresar el lote el SI genera fichas individuales por prenda; al publicar, genera la ficha de publicación; al registrar la venta, el SIG ejecuta en paralelo tres acciones —descuento de inventario, cálculo de margen y registro de cliente— mediante un gateway AND. De forma independiente al flujo principal, un evento temporizador periódico activa la evaluación de días sin venta, que mediante un gateway XOR genera o no una alerta de remate.
 
-*(Insertar diagrama TO-BE desde `assets/`)*
+![BPMN To-Be](../assets/BPMN%20Alta%20Facha%20To-Be.png)
 
 ## D.3 Mejoras introducidas por el SIG
 
