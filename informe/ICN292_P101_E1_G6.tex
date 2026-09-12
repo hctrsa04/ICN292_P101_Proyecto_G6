@@ -1,0 +1,730 @@
+\documentclass[11pt,letterpaper]{article}
+
+%%% LANGUAGE: Spanish
+\usepackage[spanish,english]{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+%%% ENCODING
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+
+\usepackage{tabularx}
+
+%%
+%%%%GENERAL INFROMATION%%%%
+%%
+
+\newcommand{\theCampus}{Campus Vitacura}
+\newcommand{\theAssignment}{SIG}
+\newcommand{\therevision}{MC|RG|IG|HS|DV}
+
+%%% PACKAGES
+\usepackage{booktabs} 	% for much better looking tables
+\usepackage{array} 		% for better arrays (eg matrices) in maths
+\usepackage{longtable}  % for tables 
+\usepackage{paralist} 	% very flexible & customizable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} 	% adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfigure} % make it possible to include more than one captioned figure/table in a single float
+
+% FECHA
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+%%% PAGE DIMENSIONS
+\usepackage[margin=25mm,inner=30mm]{geometry} % to change the page dimensions
+\usepackage{parskip}
+
+
+%%% HEADERS & FOOTERS   %%%
+\usepackage{fancyhdr} 	% This should be set AFTER setting up the page geometry
+\pagestyle{fancy} 			% options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0.5pt} % customise the layout...
+
+\renewcommand{\footrulewidth}{0.5pt} % customise the layout...
+\lhead{\includegraphics[scale=.15]{Logos/header_utfsm.png}}\cfoot{}
+\cfoot{\textbf{\thepage}}
+\rfoot{\therevision}
+\lfoot{\theAssignment}\chead{}
+\rhead{}
+
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+\usepackage{float}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+
+\usepackage[numbers]{natbib}
+
+
+% PARA GANTT
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+
+\definecolor{sigVerde}{HTML}{0F6B52}
+\definecolor{sigMorado}{HTML}{5C57A3}
+\definecolor{sigCafe}{HTML}{9C4221}
+
+%%% TABLE OF CONTENTS APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+
+\makeatletter
+\def\tableofcontents{%
+ \newpage
+ \centerline{\large\scshape Tabla de Contenidos} 
+ \vspace*{0.3in}
+ \@mkboth{CONTENTS}{CONTENTS}
+ \@starttoc{toc}
+}
+\makeatother
+
+
+\usepackage{lipsum}
+\usepackage[section]{placeins}
+
+
+%------------------------------------------------------------------------------
+%%%% TITLE PAGE
+%------------------------------------------------------------------------------
+\begin{document}
+\selectlanguage{spanish}
+
+\begin{titlepage}
+\begin{figure}[H]
+\includegraphics[width = 0.4\linewidth]{Logos/logo_di.png}
+\hspace{144pt}
+\vspace{-70pt}
+\end{figure}
+\vspace{60mm}
+\begin{center}
+\hrule
+\vspace{2mm}
+{\Huge \textbf{\sc Informe de Entrega 1 (E1):}} \\
+\vspace{2mm}
+{\Large \sc{\textit{Propuesta SIG para la PyME Alta Facha}}}
+\vspace{2mm}
+\hrule
+\vspace{1cm}
+
+
+%%%%AUTHORS%%%%
+\centering
+    {\textbf{Matias Castro Guerrero} \\
+    {\small Ingeniería Civil Industrial, 202260680-0, \emph{matias.castrog@usm.cl}}\\
+    \textbf{Ricardo García Da Silva} \\
+    {\small Ingeniería Civil Industrial, 202256604-3, \emph{ricardo.garciad@usm.cl}}\\
+    \textbf{Iván González Vela} \\
+    {\small Ingeniería Civil Industrial, 202260622-3, \emph{ivan.gonzalezv@usm.cl}}\\
+    \textbf{Héctor Sánchez Andrade} \\
+    {\small Ingeniería Civil Industrial, 202260587-1, \emph{hector.sancheza@usm.cl}}\\
+    \textbf{Diego Victoriano Rodríguez} \\
+    {\small Ingeniería Civil Industrial, 202260586-3, \emph{diego.victoriano@usm.cl}}
+}
+    
+    \vspace{0.5cm}
+    {ICN292 - Sistemas de Información para la Gestión.} \\ 
+    {\textbf{Paralelo:} 101}
+    
+    \vspace{0.5cm}
+    \textbf{Profesores:} José Luis Sáez T. \textbar\ José Miguel González P.\\[0.1 cm]
+    \textbf{Ayudantes:} Valeria Bobadilla \textbar  Catalina Bodaleo \textbar\ Luis Contreras \textbar  Benjamín Jara
+    
+    \vspace{0.5cm}
+    \textbf{Link del repositorio:} \\ \url{https://github.com/hctrsa04/ICN292_P101_Proyecto_G6}
+    
+    \vfill
+    \textsc{\monthyeardate\today}\\[0.5cm]
+    \textsc{\theCampus}
+\end{center}
+
+
+\clearpage
+
+\parindent=0mm
+
+
+\end{titlepage}
+
+%----------- %%% TABLE OF CONTENTS %%%%% -----------------------------
+\tableofcontents
+\clearpage
+
+%%--------------------------------------------------
+%%% DOCUMENT %%%%
+%%--------------------------------------------------
+
+%% ----------- Punto B -----------------------------
+\section{PYME y problema (evidencia)}
+\subsection*{Descripción de la PYME}
+
+\begin{itemize}
+    \item \textbf{Nombre del emprendimiento:} Alta Facha
+    \item \textbf{Rubro:} Venta de vestuario femenino a través de redes sociales
+    \item \textbf{Tamaño aproximado:} Emprendimiento unipersonal
+    \item \textbf{Ubicación:} Las Condes, Santiago
+\end{itemize}
+
+\subsection*{Modelo de operación actual}
+
+La PYME opera de forma exclusiva a través de Instagram, el usuario de Instagram es Alta\_fachab. A través de esa cuenta maneja toda la logística y es de momento la única plataforma donde centra todo su negocio, asimismo, para clientas más cercanas y de más confianza les comparte su número de teléfono y realizan transacciones por WhatsApp. 
+
+\subsection*{Estructura del equipo}
+
+El proceso funciona de la siguiente forma, se compra la ropa al por mayor en diversos lugares de Santiago, como patronato, o Meiggs. Una vez recibida la ropa se plancha y preparan todas las prendas, para posteriormente fotografiarlas para su publicación. Luego de eso, realiza un posteo y sube una historia de la prenda con las tallas disponibles y el valor.  
+
+Cuando un cliente quiere una de las prendas, le envía un mensaje diciendo la prenda que busca, se recibe el pago a través de transferencia o efectivo. Y la entrega del producto, por lo general, es con un servicio de paquetería dentro de la región metropolitana. También realiza envíos mediante blueexpres, o entregas en el domicilio si el cliente es de la misma comuna y sector. 
+
+\subsection*{Problemática identificada}
+
+El problema de gestión identificado se encuentra en el control de inventario, actualmente todo el stock se maneja de forma manual en un Excel, una vez vendida una prenda la dueña modifica el stock y calcula el margen y ganancias de forma manual. 
+
+Al ser un proceso que se repite muchas veces y se registra de forma manual, el riesgo potencial de cometer errores es muy alto, como puede ser el olvidar modificar el inventario después de una venta, provocando que no se calculen los márgenes en la venta, así la prenda sigue publicada y se sigue ofreciendo pese a estar vendida. Esto genera errores en las ventas, confusiones y molestias para los clientes. 
+
+\subsection*{Contexto adicional relevante}
+
+El problema central de la Pyme radica en la falta de un sistema estructurado e integrado para el control de inventario y la gestión financiera, lo que genera decisiones comerciales basadas en la intuición y una alta incidencia de errores operativos. Actualmente, la administración del stock y de los flujos de dinero se realiza de manera manual y descentralizada. Esta falta de estandarización expone al negocio a fallos humanos constantes, dificultando su crecimiento, escalabilidad y sostenibilidad a mediano y largo plazo. 
+
+Esta deficiencia de control se traduce en impactos directos, tanto a nivel operativo como económico. En el ámbito comercial, la ausencia de una trazabilidad unificada vulnera la precisión del inventario, ocasionando inconsistencias críticas de cara al cliente, como la venta duplicada de un mismo artículo. A nivel financiero, la Pyme opera bajo un escenario de incertidumbre donde no existe la capacidad de determinar con certeza la facturación periódica ni de calcular los márgenes reales de utilidad bruta y neta del negocio.
+
+
+\subsection*{Objetivo del SIG propuesto}
+El objetivo general del sistema propuesto es desarrollar un sistema de información para la gestión de inventario y ventas que automatice el descuento de stock tras cada transacción, calcule los márgenes de ganancia y realice el balance mensual. Esto tiene como finalidad erradicar las ventas de productos sin stock y proporcionar una visión clara y precisa del estado financiero del negocio.
+
+Dentro de los objetivos específicos se encuentran los siguientes aspectos:
+
+\begin{itemize}
+    \item Mantener un registro de prendas único y centralizado, que contenga atributos clave como talla, cantidad, costo de compra, valor de venta, entre otros.
+    \item Automatizar la actualización del inventario, de modo que el stock se modifique de forma automática sin la necesidad de intervención manual continua.
+    \item Generar alertas de stock crítico para anticipar y evitar quiebres de inventario.
+    \item Obtener gráficas de márgenes por cada venta y márgenes generales, así como visualizar los productos más vendidos y otros indicadores clave de desempeño.
+\end{itemize}
+ 
+
+% --------- Punto C --------
+\section{Requerimientos desde cero}
+\subsection*{Actores y roles}
+
+En el modelo de negocio intervienen principalmente tres actores principalmente. En primer lugar destaca Belén, dueña y única operadora de Alta Facha, quien concentra todas las decisiones operativas y estratégicas del negocio, tales como el registro de los lotes recibidos, las publicaciones en Instagram, la atención a las clientas y la coordinación de los despachos. Como actores externos se encuentran las clientas, quienes interactúan con el negocio realizando compras a través de mensajes directos en Instagram. Finalmente, participa el distribuidor, un actor externo encargado del despacho físico de las prendas, cuyo rol es ejecutar y confirmar la entrega de los productos.
+
+Por otro lado, el sistema de información propuesto interactúa como un actor sistémico interno. Su rol principal es centralizar y automatizar procesos de gestión que actualmente se realizan de forma manual o carecen de control. Entre sus funciones clave se encuentran la generación de fichas individuales para cada prenda, la actualización automática del inventario al concretar una venta y el cálculo preciso de los márgenes financieros. Además, el sistema asume un rol proactivo mediante la emisión de alertas para artículos con baja rotación y la consolidación de un registro histórico de clientas para el análisis de datos comerciales.
+
+\subsection*{Alcance in / out}
+Dentro del sistema (IN) se encuentran:
+\begin{itemize}
+    \item Registro de lotes de ropa con costo de adquisición.
+    \item Generación de ficha individual por prenda.
+    \item Control de inventario (disponible / vendido / entregado).
+    \item Registro de ventas con precio de venta y cálculo automático de margen.
+    \item Registro y actualización de datos de clientes.
+    \item Generación de ficha de publicación (datos para subir a Instagram).
+    \item Alerta automática de prendas sin venta superado un umbral de días configurado.
+\end{itemize}
+
+Fuera del sistema (OUT) se encuentran cosas que el sistema podría abordar eventualmente, pero para este caso no se consideran dado su complejidad de aplicación:
+\begin{itemize}
+    \item Publicación directa en Instagram.
+    \item Gestión de pagos.
+    \item Comunicación con el cliente (sigue siendo por DM).
+    \item Módulo contable o tributario.
+\end{itemize}
+
+\newpage
+\subsection*{Requisitos funcionales y no funcionales}
+
+\textbf{Prioridad según MoSCoW:} M = Must have \textperiodcentered\ S = Should have \textperiodcentered\ C = Could have
+
+\subsubsection*{Requisitos Funcionales}
+
+\begin{longtable}{|c|p{6.5cm}|c|p{5.5cm}|}
+\hline
+\textbf{ID} & \textbf{Requisito} & \textbf{Prioridad} & \textbf{Problema que resuelve} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \textbf{Requisito} & \textbf{Prioridad} & \textbf{Problema que resuelve} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\endlastfoot
+
+RF-01 & El sistema debe permitir registrar un lote de prendas indicando fecha de recepción y costo total del lote. & M & Belén no tiene registro de cuánto pagó por cada lote, imposibilitando calcular márgenes. \\
+\hline
+RF-02 & El sistema debe generar automáticamente una ficha individual por prenda al registrar un lote, incluyendo descripción, talla, precio sugerido y estado (disponible). & M & Las prendas se gestionan de memoria; no existe inventario estructurado. \\
+\hline
+RF-03 & El sistema debe registrar una venta asociando la prenda vendida, el precio cobrado, la fecha y el cliente. & M & Las ventas no quedan registradas, lo que impide analizar ingresos o detectar errores. \\
+\hline
+RF-04 & El sistema debe calcular y almacenar automáticamente el margen de ganancia por prenda al momento de registrar la venta. & M & Belén desconoce la rentabilidad real de cada transacción. \\
+\hline
+RF-05 & El sistema debe registrar o actualizar los datos del cliente (nombre, contacto) en cada venta. & M & No existe historial de clientes; se pierde la posibilidad de fidelización. \\
+\hline
+RF-06 & El sistema debe generar una ficha de publicación por prenda con la información necesaria para subir a Instagram. & S & El proceso de publicación es manual y repetitivo; una ficha estructurada lo agiliza. \\
+\hline
+RF-07 & El sistema debe detectar prendas que superen un umbral configurable de días sin venta y generar una alerta de remate. & S & Prendas con bajo movimiento no generan ninguna señal, ocupando inventario sin producir ingresos. \\
+\hline
+RF-08 & El sistema debe permitir marcar una prenda como entregada y registrar la fecha de entrega al confirmar el despacho. & M & El cierre del proceso (entrega) no queda registrado; el inventario puede quedar inconsistente. \\
+\hline
+RF-09 & El sistema debe mostrar un resumen de inventario con prendas disponibles, vendidas y entregadas. & S & Belén no tiene visibilidad del estado actual de su stock en ningún momento. \\
+\hline
+RF-10 & El sistema debe permitir configurar el umbral de días sin venta que activa la alerta de remate. & C & El umbral óptimo depende del contexto del negocio y puede variar en el tiempo. \\
+\hline
+\caption{Requisitos funcionales priorizados según MoSCoW.}
+\label{tab:rf}
+\end{longtable}
+
+\newpage
+\subsubsection*{Requisitos No Funcionales}
+
+\begin{longtable}{|c|p{6.5cm}|c|p{5.5cm}|}
+\hline
+\textbf{ID} & \textbf{Requisito} & \textbf{Prioridad} & \textbf{Justificación} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \textbf{Requisito} & \textbf{Prioridad} & \textbf{Justificación} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\endlastfoot
+
+RNF-01 & La interfaz debe ser operable desde un smartphone sin capacitación técnica previa. & M & Belén es la única usuaria y gestiona el negocio desde su teléfono mientras coordina entregas o atiende clientes. \\
+\hline
+RNF-02 & El sistema debe estar disponible al menos el 95\% del tiempo en horario de operación (09:00--22:00). & M & Las ventas ocurren en cualquier momento del día vía Instagram; una caída implica pérdida de registro de ventas. \\
+\hline
+RNF-03 & El acceso al sistema debe requerir autenticación con contraseña. & S & Los datos de clientes y márgenes son información sensible del negocio. \\
+\hline
+RNF-04 & El tiempo de respuesta de cualquier operación de registro o consulta debe ser inferior a 3 segundos. & S & Una herramienta lenta será abandonada por Belén en favor de su método actual. \\
+\hline
+RNF-05 & El sistema debe poder ser mantenido o extendido por un desarrollador sin conocimiento previo del proyecto, dado un README adecuado. & C & La sostenibilidad del sistema a largo plazo requiere que no dependa exclusivamente de su desarrollador original. \\
+\hline
+\caption{Requisitos no funcionales priorizados según \\ MoSCoW.}
+\label{tab:rnf}
+\end{longtable}
+
+\newpage
+
+% ------------- Punto D ------------------
+\section{Procesos BPMN}
+\subsection*{BPMN as-is}
+El proceso actual se modela con tres participantes correspondientes a Belén (Alta Facha), Cliente y Distribuidor. No existe ningún carril de sistema o de cargo especifico dentro de la empresa porque todo es gestión manual de la dueña.
+
+El flujo inicia con la recepción de un lote, se plancha las prendas, toma fotografías y publica manualmente en Instagram. El proceso queda en espera hasta que el cliente contacta por mensaje directo, Belén atiende la consulta, acuerda la venta, coordina el despacho con el distribuidor y, al confirmar entrega, registra la venta en una planilla excel.
+
+La Figura \ref{fig:bpmn-as-is} del Anexo (ver Anexo \ref{anexo}) muestra el proceso actual de venta y despacho de prendas, tal como opera hoy sin intervención del sistema propuesto.
+
+
+\subsection*{BPMN to-be}
+
+El flujo To-Be conserva ciertas tareas de Belén e intercala tareas automáticas del Sistema de Información de Gestión en los puntos donde antes no existía registro, por ejemplo al ingresar el lote el SI genera fichas individuales por prenda, al publicar genera la ficha de publicación, al registrar la venta el SIG ejecuta en paralelo tres acciones: descuento de inventario, cálculo de margen y registro de cliente; esto mediante un gateway AND y de forma independiente al flujo principal, un evento temporizador periódico activa la evaluación de días sin venta, que con un gateway XOR genera o no una alerta de remate.
+
+La Figura \ref{fig:bpmn-to-be} del Anexo (ver Anexo \ref{anexo}) presenta el proceso propuesto, incorporando la intervención del SIG en los puntos de registro, control de inventario y generación de alertas.
+
+\subsection*{Explicación de mejoras}
+\begin{itemize}
+    \item \textbf{¿Qué se automatiza?} La generación de fichas por prenda y por publicación, el cálculo de márgenes y el descuento de inventario al momento de la venta., antes estas tareas antes totalmente del registro manual de Belén.
+    \item \textbf{¿Qué se controla?} El estado de cada prenda (disponible / vendida / entregada) queda trazado en el sistema, eliminando la posibilidad de vender una prenda ya despachada o de perder el registro de una transacción. El registro de clientes pasa de ser inexistente a mantenerse actualizado en cada venta, con tal de poder identificar clientes frecuentes, productos populares y otros análisis que antes no se podían realizar dado la falta de data. 
+    \item \textbf{¿Qué se mide?} El margen de ganancia por prenda y por lote, la antigüedad de las prendas en inventario y el historial de ventas por cliente. Con esto se habilita decisiones basadas en información que hoy Alta Facha no recolecta, así se puede saber qué tipos de prendas rotan más rápido, cuánto gana realmente por lote y cuándo conviene hacer un remate.
+\end{itemize}
+
+\newpage
+
+% -------------- Punto E ------------------
+\section{Modelo de datos preliminar}
+\subsection*{Entidades y atributos}
+
+A partir de la entrevista con la dueña de la PYME se pudo reconocer que los actores principales dentro del proceso productivo (con sus respectivos atributos) son:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Entidad} & \textbf{Atributos} \\
+\hline
+Prenda & id\_prenda, tipo, talla, fecha\_ingreso, precio\_compra, precio\_venta, precio\_remate, estado \\
+\hline
+Proveedor & id\_proveedor, nombre \\
+\hline
+Distribuidor & id\_distribuidor, nombre \\
+\hline
+Cliente & id\_cliente, nombre, contacto \\
+\hline
+Pedido & id\_pedido, id\_cliente (FK), fecha, canal\_venta, tipo\_entrega, id\_distribuidor (FK, si aplica) \\
+\hline
+\end{tabular}
+\caption{Entidades y atributos del modelo de datos preliminar.}
+\label{tab:entidades}
+\end{table}
+
+Lo que en palabras sería:
+
+\begin{itemize}
+    \item \textbf{Prenda}: Un código identificador para cada prenda asociado a características tales como el tipo de prenda, su talla, fecha de ingreso al inventario, el precio al que se adquirió, el precio al cual se desea ofertar y un precio en caso de que la prenda se remate.
+    \item \textbf{Proveedor}: Un código identificador para cada proveedor que me indica el nombre del mismo. No se cuenta con mayor información sobre proveedores.
+    \item \textbf{Distribuidor}: Un código identificador para cada distribuidor que nos indica el nombre. No se maneja mayor información sobre distribuidores.
+    \item \textbf{Cliente}: Un código identificador para cada cliente que entrega el nombre y contacto del usuario.
+    \item \textbf{Pedido}: Un código identificador para cada pedido, asociado con un cliente que solicitó uno o muchos productos en cierta fecha, en el canal de venta correspondiente y que dependiendo de su ubicación geográfica en la ciudad o alrededores se le asigna un envío por parte de la propia dueña o una agencia especialista.
+\end{itemize}
+
+\subsection*{Relación entre entidades (Cardinalidad)}
+
+No solo es importante reconocer las entidades que participan de este proceso, tampoco basta con destacar sus atributos relevantes, sino que también es de suma importancia reconocer cómo es que se relacionan entre sí, si existe algún tipo de relación. Por lo mismo, a continuación se reconocerá la cardinalidad en la interacción entre entidades:
+
+\begin{itemize}
+    \item \textbf{Proveedor--Prenda (1,N)}: Decimos que un proveedor abastece de múltiples prendas, pero que cada prenda proviene de un único proveedor. Esto es coherente con el tipo de negocio que maneja la PYME, puesto que la dueña declara comprar sus insumos a mayoristas en fardos de ropa, lo cual sugiere (y no hay declaraciones que lo contradigan) que efectivamente una prenda proviene de un único proveedor.
+    \item \textbf{Pedido--Prenda (1,N)}: Un pedido puede estar constituido por diversas prendas, pero cada prenda pertenece a un único pedido. Lo anterior se sustenta en el mismo modo de operación de la empresa, específicamente en el abastecimiento de la misma, donde se comprende que prácticamente cada prenda es de existencia única en el catálogo que se maneja periodo a periodo.
+    \item \textbf{Cliente--Pedido (1,N)}: Desde aquí se entiende que un cliente puede realizar más de un pedido, pero que cada pedido pertenece a un único cliente.
+    \item \textbf{Distribuidor (0,1) -- Pedido (1,N)}: Esta resulta ser la relación más ``delicada'' de entender, puesto que se sostiene únicamente de las declaraciones de Belén en la reunión que se realizó. Dentro de esta reunión, se nos indica que ella terceriza el envío de sus pedidos a sus clientes, pero existe una excepción dependiendo de la ubicación de su cliente:
+    \begin{enumerate}
+        \item Si el cliente vive en Las Condes, puede darse un envío ejecutado por la propia dueña.
+        \item Dado otro caso, la entrega del pedido será confiada a una empresa de servicios de paquetería.
+    \end{enumerate}
+    Con esto en mente, se entiende entonces que un distribuidor puede estar a cargo de más de un pedido, sin embargo, un pedido puede estar a cargo de una única o ninguna empresa de repartos.
+\end{itemize}
+
+\subsection*{Justificación con el modelo BPMN}
+
+Esta descripción del proceso To-Be respalda directamente el diseño del ER preliminar:
+
+\begin{itemize}
+    \item La generación de \textbf{fichas individuales por prenda} al ingresar el lote justifica que \emph{Prenda} sea una entidad con identidad propia (\emph{id\_prenda}), y no simplemente una cantidad dentro de un lote genérico.
+    \item El \textbf{registro de cliente} en paralelo al registrar la venta confirma que \emph{Cliente} debe capturarse en el momento del \emph{Pedido}, coherente con la FK \emph{id\_cliente} en \emph{Pedido}.
+    \item El \textbf{descuento de inventario} automático depende del atributo \emph{estado} de \emph{Prenda}, que permite distinguir entre disponible/vendida/rematada.
+    \item La \textbf{alerta de remate} generada por el evento temporizador se apoya en poder calcular días sin venta por prenda, esto sugiere que \emph{Prenda} necesitaría un atributo de fecha (ej. \emph{fecha\_ingreso}) para que el sistema pueda calcular cuántos días lleva sin venderse.
+\end{itemize}
+
+
+\newpage
+
+% -------------- Punto F ------------------
+\section{Arquitectura lógica y stack tentativo}
+
+\subsection*{Enfoque de la solución}
+
+A partir de los requerimientos definidos y del proceso To-Be, se propone desarrollar el 
+SIG de Alta Facha como una aplicación web de uso interno y de baja sofisticación, 
+orientada a centralizar el registro de inventario, ventas y clientes, 
+automatizando aquellas tareas que actualmente presentan un mayor riesgo de error, pero que también sea adoptable al uso de la usuaria.
+
+Considerando que la operación cotidiana de Alta Facha se realiza principalmente desde 
+el teléfono móvil, se privilegiará una interfaz simple, con pocas acciones de ingreso 
+manual. De esta manera, la interacción de la usuaria se concentrará principalmente en 
+registrar lotes, ventas, confirmar entregas y consultar información, mientras 
+que operaciones como la actualización del estado del inventario, el cálculo de márgenes 
+y la generación de indicadores serán realizadas por el sistema de maner automática.
+
+La propuesta no busca reemplazar los actuales canales comerciales de Alta Facha. 
+Instagram y WhatsApp continuarán siendo utilizados para la publicación de prendas y la 
+comunicación con las clientas, mientras que la gestión de pagos y despachos permanecerá 
+fuera del alcance del SIG. En consecuencia, la aplicación actuará como una herramienta 
+interna de control y apoyo a la toma de decisiones.
+
+Para la Entrega 2 se implementará un prototipo funcional y reproducible en 
+\texttt{localhost}. Por lo tanto, el alcance actual corresponde a la validación de la 
+solución propuesta y de su integración entre proceso, datos y analítica, quedando un 
+eventual despliegue productivo para uso remoto de la PYME fuera del alcance de esta etapa.
+
+
+\subsection*{Arquitectura lógica}
+
+La arquitectura propuesta se organiza en torno a una aplicación web que concentra la 
+interacción de la usuaria y se conecta con una base de datos relacional. A partir de los 
+datos almacenados, el sistema permitirá ejecutar consultas de negocio, calcular y 
+visualizar indicadores, además de incorporar una automatización asociada al proceso 
+To-Be. La Figura~\ref{fig:arquitectura_sig} del Anexo (ver Anexo \ref{anexo}) presenta la arquitectura lógica propuesta.
+
+La \textbf{aplicación web} será el principal punto de interacción de Belén con el 
+SIG. Desde ella será posible registrar información asociada a lotes, prendas, ventas y 
+clientes, actualizar el estado de las entregas, consultar el inventario y acceder a los 
+principales indicadores del negocio.
+
+La lógica de aplicación ejecutará las reglas definidas en los requerimientos 
+funcionales, entre ellas la generación de fichas de prendas, la validación y actualización 
+del stock, el cambio de estado de las prendas, el cálculo de márgenes y el registro o 
+actualización de la información de clientes.
+
+La capa de persistencia estará compuesta por una base de datos relacional, cuyo 
+modelo definitivo será obtenido a partir de la normalización a tercera forma normal 
+(3FN) durante la Entrega 2 (E2). Esta capa permitirá centralizar la información que 
+actualmente se mantiene de manera manual y mantener trazabilidad sobre inventario, 
+clientes y transacciones.
+
+Sobre los datos almacenados se incorporará un componente de \textbf{analítica y KPI}, 
+encargado de ejecutar consultas de negocio y presentar información relevante para la 
+gestión, como el estado del inventario, ventas realizadas, márgenes y antigüedad de las 
+prendas. De forma complementaria, se contempla un componente de 
+\textbf{automatización}, asociado principalmente a la revisión periódica de prendas que 
+superen el umbral definido de días sin venta y a la generación de alertas de remate.
+
+
+\subsection*{Stack tecnológico tentativo}
+
+Considerando el tamaño de la PYME, la existencia de una única usuaria operativa y la 
+necesidad de implementar una solución reproducible en \texttt{localhost}, se propone un 
+stack tecnológico sencillo. Su propósito es satisfacer los requerimientos 
+del SIG sin incorporar una complejidad técnica innecesaria.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Stack tecnológico tentativo para el SIG.}
+    \label{tab:stack_sig}
+    \begin{tabularx}{\textwidth}{@{}p{3.2cm}p{3.2cm}X@{}}
+        \toprule
+        \textbf{Componente} & \textbf{Tecnología} & \textbf{Aplicación en el proyecto} \\
+        \midrule
+        Aplicación web &
+        Python + Streamlit &
+        Desarrollo de formularios, vistas de consulta y tablero de indicadores en una
+        misma aplicación. \\
+
+        Persistencia &
+        SQLite &
+        Almacenamiento local y relacional de la información del negocio. \\
+
+        Consultas de negocio &
+        SQL &
+        Obtención y procesamiento de información para análisis e indicadores. \\
+
+        Analítica y KPI &
+        Streamlit + SQL &
+        Visualización de métricas asociadas a inventario, ventas, márgenes y rotación. \\
+
+        Automatización &
+        n8n o herramienta homóloga &
+        Ejecución de procesos periódicos vinculados al BPMN To-Be, especialmente la
+        detección de prendas que superen el umbral de días sin venta. \\
+
+        Control de versiones y documentación &
+        GitHub &
+        Almacenamiento del código, scripts SQL, documentación y trazabilidad del proyecto. \\
+
+        Ambiente de ejecución &
+        Localhost &
+        Ejecución reproducible de la solución durante la Entrega 2. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+La elección tentativa de Python, Streamlit y SQLite permite integrar la captura, consulta 
+y visualización de información en una solución de baja complejidad técnica. SQLite 
+resulta suficiente para el volumen y nivel de concurrencia esperado en el caso de Alta 
+Facha y, al mismo tiempo, permite materializar el modelo relacional mediante SQL.
+
+La aplicación será documentada en el repositorio GitHub junto con las dependencias, 
+scripts de creación y carga de la base de datos e instrucciones necesarias para que un 
+tercero pueda reproducir la solución en \texttt{localhost}. La arquitectura y el stack 
+podrán ser ajustados durante la Entrega 2 en función de la normalización del modelo de 
+datos y de los resultados obtenidos durante la implementación.
+
+% -------------- Punto G -----------------
+\section{Plan de Entrega 2 y riesgos}
+Para la entrega 2 el equipo comenzara a trabajar durante la segunda/tercera semana de Octubre (suponiendo que ya se tenga el feedback de la primera entrega). Durante la semana del 15 al 19 de Octubre se avanzará en la normalización del modelo de datos a 3FN, dando forma al ER final. Entre 20 y 22 de Octubre se completará el diccionario de datos con todo lo necesario y relacionado al negocio. Una vez se tenga el ER ya normalizado y el diccionario definido comenzamos, entre 23 y 25 de Octubre, a documentar la trazabilidad entre ambas entregas, señalando que se cambió y que se mantuvo en el BPMN y en el ER.
+
+Entre el 26 de Octubre y el 1 de Noviembre se elaborará el script SQL. Entre 2 y 6 de Noviembre se diseñarán y ejecutarán las consultas de negocio alineadas al problema de la PYME, junto con una interpretación de sus resultados.
+
+Entre el 7 y 13 de Noviembre se implementará el tablero KPI, formalizando los indicadores bajo el esquema KPI/OKR. Entre el 14 y el 18 de Noviembre, se diseñará y documentará el flujo de la automatización en n8n (u homologo), conectado al proceso to-be.
+
+En la semana del 19 al 21 de Noviembre se consolidará el repositorio GitHub, cerciorándonos que contenga con toda la documentación en el formato solicitado. Y finalmente en paralelo a la consolidación del repositorio, en los últimos días hasta la fecha límite de envío se redactará el informe final junto con la presentación de contexto.
+
+Durante todo este tiempo, desde 15 de Octubre hasta el 23 de Noviembre se llevarán a cabo reuniones de forma online con la PYME, solo de ser necesarias. Este cronograma puede estar sujeto a cambios.
+
+Además, el responsable de cada tarea/ hito se mantendrá en espera. La asignación de responsables se hará la semana anterior al inicio del cronograma. La Figura \ref{fig:gantt-e2} del Anexo (ver Anexo \ref{anexo}) presenta la carta Gantt con la planificación descrita.
+
+\subsection*{Riesgos Ley 21.719}
+\begin{itemize}
+    \item \textbf{Riesgo 1 - Uso de datos:} Al construir base de datos SQL y cargarla con información del caso, existe riesgo de incorporar datos reales clientes o transacciones sin que exista un consentimiento explicito. La ley exige que toda recolección de datos personales cuente con una base de licitud clara, por lo que sería necesario obtener consentimiento antes de poder dar uso a los datos.
+    \item \textbf{Riesgo 2 - Exponer información confidencial en el repositorio:} Como el repositorio deber ser público y clonable por el docente, cualquier dato que se suba al repositorio queda sin una forma de controlar el acceso.
+    \item \textbf{Riesgo 3 – Automatización n8n conectada a datos sensibles:} Una automatización que mueve datos entre sistemas sin registro de la información que procesa, cuando y por qué, es lo que la ley busca evitar. Por lo que se debe documentar el flujo del n8n señalando que datos puede tocar y los controles de acceso disponibles.
+    \item \textbf{Riesgo 4 – Ausencia de mecanismo de derechos:} Los titulares de los datos ocupados tienen derecho a saber qué información se tiene sobre ellos y pueden solicitar la eliminación de estos datos. El sistema propuesto no contempla ninguna acción para ejercer estos derechos.
+    \item \textbf{Riesgo 5 – Retención de datos:} No se ha definido que ocurre con los datos utilizados una vez acabado el proyecto. La ley contempla que la personas tienen derecho a solicitar la supresión de su información y exige a las organizaciones que no conserven más información de la necesaria.
+\end{itemize}
+
+
+\newpage
+%%==================================================================
+%%% ANEXOS
+%%==================================================================
+\appendix
+\section{Anexos}
+\label{anexo}
+
+En esta sección se recopilan los diagramas de apoyo del informe: los modelos de proceso BPMN (as-is y to-be), el diagrama de arquitectura lógica del SIG y la carta Gantt de planificación de la Entrega 2.
+
+\subsection*{Diagramas de proceso BPMN}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Informe entrega 1 (E1)/Diagramas/BPMN Alta Facha As-Is.png}
+    \caption{Proceso as-is: venta y despacho de prendas.}
+    \label{fig:bpmn-as-is}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Informe entrega 1 (E1)/Diagramas/BPMN Alta Facha To-Be.png}
+    \caption{Proceso to-be: venta y despacho de prendas con intervención del SIG.}
+    \label{fig:bpmn-to-be}
+\end{figure}
+
+\subsection*{Arquitectura lógica del SIG}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.55\linewidth}{!}{%
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,1079); %set diagram left start at 0, and has height of 1079
+
+%Shape: Rectangle [id:dp9436441967971814] 
+\draw   (247.4,12.6) -- (398.6,12.6) -- (398.6,81.4) -- (247.4,81.4) -- cycle ;
+%Shape: Rectangle [id:dp6558487850525043] 
+\draw   (247.4,141) -- (398.6,141) -- (398.6,261.4) -- (247.4,261.4) -- cycle ;
+%Shape: Rectangle [id:dp380120224409645] 
+\draw   (248.8,341) -- (399.4,341) -- (399.4,461.4) -- (248.8,461.4) -- cycle ;
+%Shape: Rectangle [id:dp14643165647171585] 
+\draw   (249.6,525) -- (399.4,525) -- (399.4,645.4) -- (249.6,645.4) -- cycle ;
+%Straight Lines [id:da14425767694721692] 
+\draw    (323,81.4) -- (323,138) ;
+\draw [shift={(323,141)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da08405813218360225] 
+\draw    (323,261.4) -- (324.06,338) ;
+\draw [shift={(324.1,341)}, rotate = 269.21] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da8444454308755583] 
+\draw    (324.1,461.4) -- (324.48,522) ;
+\draw [shift={(324.5,525)}, rotate = 269.64] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Shape: Rectangle [id:dp3252040940082558] 
+\draw   (146.4,723) -- (271.4,723) -- (271.4,863) -- (146.4,863) -- cycle ;
+%Shape: Rectangle [id:dp3783206050063591] 
+\draw   (368,724.6) -- (508.2,724.6) -- (508.2,864.6) -- (368,864.6) -- cycle ;
+%Down Arrow [id:dp3572393801235788] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (425.6,817.64) -- (428.85,817.64) -- (428.85,810.2) -- (435.35,810.2) -- (435.35,817.64) -- (438.6,817.64) -- (432.1,822.6) -- cycle ;
+%Straight Lines [id:da08742485842864423] 
+\draw    (324.5,645.4) -- (211.39,721.33) ;
+\draw [shift={(208.9,723)}, rotate = 326.13] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da5549758275449753] 
+\draw    (324.5,645.4) -- (435.64,722.88) ;
+\draw [shift={(438.1,724.6)}, rotate = 214.88] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+
+% Text Node
+\draw (294.8,30.4) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize] [align=left] {\textbf{Usuaria}\\(Belén)};
+% Text Node
+\draw (266,153.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {\begin{minipage}[lt]{78.01pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{App Web}\\Streamlit
+\end{center}
+Registrar lote / venta\\Confirmar entrega\\Inventario / KPI 
+\end{minipage}};
+% Text Node
+\draw (257.2,352) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {\begin{minipage}[lt]{92.99pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{Lógica de aplicación}
+\end{center}
+Validación de stock\\Actualización de estados\\Cálculo de márgenes\\Gestión de clientes
+\end{minipage}};
+% Text Node
+\draw (262,535.2) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {\begin{minipage}[lt]{85.28pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{Base de datos}\\SQLite
+\end{center}
+Inventario\\Ventas / Pedidos\\Clientes / Proveedores
+\end{minipage}};
+% Text Node
+\draw (162,733.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {\begin{minipage}[lt]{62.57pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{Consultas / KPI}\\SQL
+\end{center}
+Stock\\Ventas\\Márgenes\\Rotación
+\end{minipage}};
+% Text Node
+\draw (374.8,735.2) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {\begin{minipage}[lt]{88.02pt}\setlength\topsep{0pt}
+\begin{center}
+\textbf{Automatización}\\n8n
+\end{center}
+Revisión de antigüedad\\\\\\Alerta de remate
+\end{minipage}};
+
+
+\end{tikzpicture}    }
+    \caption{Arquitectura lógica propuesta para el SIG de Alta Facha.}
+    \label{fig:arquitectura_sig}
+\end{figure}
+
+\subsection*{Carta Gantt - Planificación Entrega 2}
+
+\begin{figure}[H]
+\centering
+
+% ---- Leyenda ----
+\begin{tikzpicture}
+\fill[sigVerde] (0,0) rectangle (0.3,0.3);
+\node[right] at (0.35,0.15) {\small Diseño y modelo de datos};
+
+\fill[sigMorado] (5.3,0) rectangle (5.6,0.3);
+\node[right] at (5.65,0.15) {\small Análisis y automatización};
+
+\fill[sigCafe] (10.5,0) rectangle (10.8,0.3);
+\node[right] at (10.85,0.15) {\small Cierre y entrega};
+\end{tikzpicture}
+
+\vspace{0.3cm}
+
+% ---- Carta Gantt ----
+\resizebox{\linewidth}{!}{%
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=0.4cm,
+    y unit title=0.7cm,
+    y unit chart=0.8cm,
+    title height=1,
+    bar height=0.6,
+    bar/.append style={rounded corners=2pt},
+    title label font=\small,
+    bar label font=\small,
+]{1}{43}
+
+\gantttitle{15 oct}{7}
+\gantttitle{22 oct}{7}
+\gantttitle{29 oct}{7}
+\gantttitle{5 nov}{7}
+\gantttitle{12 nov}{7}
+\gantttitle{19 nov}{7}
+\gantttitle{26 nov}{1} \\
+
+\ganttbar[bar/.append style={fill=sigVerde}]{Normalización 3FN}{1}{5} \\
+\ganttbar[bar/.append style={fill=sigVerde}]{Diccionario de datos}{6}{8} \\
+\ganttbar[bar/.append style={fill=sigVerde}]{Trazabilidad E1-E2}{9}{11} \\
+\ganttbar[bar/.append style={fill=sigVerde}]{Script SQL ejecutable}{12}{18} \\
+\ganttbar[bar/.append style={fill=sigMorado}]{Consultas de negocio}{19}{23} \\
+\ganttbar[bar/.append style={fill=sigMorado}]{Tablero KPI/OKR}{24}{30} \\
+\ganttbar[bar/.append style={fill=sigMorado}]{Automatización n8n}{31}{35} \\
+\ganttbar[bar/.append style={fill=sigCafe}]{Repositorio auditable}{36}{38} \\
+\ganttbar[bar/.append style={fill=sigCafe}]{Informe final y defensa}{39}{43} \\
+
+\end{ganttchart}%
+}
+
+\caption{Carta Gantt - Plan de trabajo para E2.}
+\label{fig:gantt-e2}
+\end{figure}
+
+
+\end{document}
