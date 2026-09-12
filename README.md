@@ -12,12 +12,14 @@ Dentro del presente repositorio se encuentra todo tipo de documentos que conform
 ## 2. Qué encontrará en cada carpeta
 
 El repositorio está dividido en diversas carpetas, las cuales poseen distintos aspecto relevantes del proyecto en si mismos. Se define a continuación cada una de estas:
-- ***"docs/00-caso-pyme.md"***. Donde se describe a detalle la PYME escogida y la problemática identificada en su actual modalidad de trabajo, entre otros aspectos relevantes.
-- ***"docs/01-requerimientos.md"***. Aquí se encuentran descritos los **Requerimientos Funcionales** y **No Funcionales** de la PYME (RF y RNF, respectivamente). 
-- ***"docs/02-bpmn.md"***. Diagrama de procesos del negocio, BPMN. Se encuentran tanto el diagrama AS-IS (como se hace actualmente), como el TO-BE (propuesta del grupo) con su respectiva explicación.
-- ***"docs/03-er-preliminar.md"***. Aquí se alberga el diagrama entidad-relación con la explicación correspondiente del mismo.
-- ***"assets/"***. Archivos **.png** de los diferentes diagramas de procesos realizados, usada para referenciar.
-- ***"informe/"***. Donde se ubica el informe final en formato PDF y Word/LaTex.
+- [***docs/00-caso-pyme.md***](./docs/00-caso-pyme.md). Donde se describe a detalle la PYME escogida y la problemática identificada en su actual modalidad de trabajo, entre otros aspectos relevantes.
+- [***docs/01-requerimientos.md***](./docs/01-requerimientos.md). Aquí se encuentran descritos los **Requerimientos Funcionales** y **No Funcionales** de la PYME (RF y RNF, respectivamente). 
+- [***docs/02-bpmn.md***](./docs/02-bpmn.md). Diagrama de procesos del negocio, BPMN. Se encuentran tanto el diagrama AS-IS (como se hace actualmente), como el TO-BE (propuesta del grupo) con su respectiva explicación.
+- [***docs/03-er-preliminar.md***](./docs/03-er-preliminar.md). Aquí se alberga el diagrama entidad-relación propuesto con la explicación correspondiente.
+- [***docs/04-componentes-stack.md***](./docs/04-componentes-stack.md). Donde se detallará y planificará el funcionamiento del sistema a implementarse.
+- [***docs/05-entrega-riesgos.md***](./docs/05-entrega-riesgos.md). Se hallará un plan de acción post Entrega 1, es decir: qué se hizo, quién lo hizo y en qué plazos. Además, se expondrán diferentes riesgos asociados al manejo de información sensible (Ley N°21.719).
+- [***assets/***](./docs/assets). Archivos **.png** de los diferentes diagramas de procesos realizados, usada para referenciar.
+- [***informe/***](./informe). Donde se ubica el informe final en formato PDF y Word/LaTex.
 
 ## 3. Cómo se relaciona con la segunda entrega 
 
@@ -37,6 +39,5 @@ Cada integrante estuvo a cargo de las siguientes tareas:
 
 ## 5. Rutas relevantes
 
-Para ver el informe en los formatos solicitados dirigirse a ["Informe"](./informe/).
-- Link de entrega en aula: 
+Link de entrega en aula: 
 
