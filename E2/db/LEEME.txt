@@ -1,0 +1,20 @@
+Base de datos SIG Alta Facha (SQLite)
+
+Requisito: Python 3 (no hay que instalar nada mas).
+
+Abrir una terminal en esta carpeta y ejecutar en orden:
+
+1. python crear_bd.py          -> crea la base en data/altafacha.db
+2. python probar_consultas.py  -> muestra el resultado de las consultas
+3. python alerta_remate.py     -> genera las alertas de remate
+
+Resultados esperados:
+- Stock disponible: 14 prendas (13 disponibles + 1 en remate)
+- Ventas: 12 prendas vendidas en 7 pedidos
+- Prendas sobre el umbral de 30 dias: 7 (ids 7, 8, 9, 15, 16, 17, 18)
+- alerta_remate.py genera 7 alertas la primera vez y ninguna la segunda
+
+Carpetas:
+- sql/   schema.sql, datos_prueba.sql y consultas.sql
+- data/  aqui se crea altafacha.db
+- docs/  modelo ER y normalizacion (Word)
