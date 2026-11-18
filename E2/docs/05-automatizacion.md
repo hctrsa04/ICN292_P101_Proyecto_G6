@@ -65,7 +65,7 @@ UPDATE Configuracion SET umbral_dias = 50 WHERE id_config = 1;
 En el Programador de tareas de Windows:
 
 1. **Crear tarea básica**, con el nombre "Alerta de remate - Alta Facha".
-2. **Desencadenador:** diariamente, a las 0:50.
+2. **Desencadenador:** diariamente, a las 0:50 (esto unicamente porque se estaba probando).
 3. **Acción:** iniciar un programa → `ejecutar_alerta.bat`, con "Iniciar en" igual a la carpeta de los scripts.
 4. Cada ejecución queda registrada en `data/registro_alertas.txt`.
 
@@ -86,6 +86,6 @@ Las pruebas se hicieron con los datos de `datos_prueba.sql`, con un umbral inici
 
 ## 5.7 Limitaciones
 
-- La tarea programada solo corre si el computador está encendido a esa hora. En un uso real convendría un equipo siempre encendido o un servicio en la nube.
+- La tarea programada solo corre si el computador está encendido a la hora fijada. En un uso ideal convendría un equipo siempre encendido o un servicio en la nube, o en caso de la pyme asesorada establecer un horario de equipo encendido.
 - La alerta solo avisa; la decisión del remate y del margen sigue siendo de Belén, como se definió en el To-Be.
 - Los días sin venta se cuentan desde la recepción del lote y no desde la publicación, porque así se definió en el modelo de datos. Si una prenda se publica tarde, puede aparecer en la alerta antes de lo que correspondería.
