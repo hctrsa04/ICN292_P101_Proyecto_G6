@@ -1,8 +1,8 @@
 # E. Diagrama Entidad-Relación (Preliminar)
 
-![Diagrama ER](assets/ER_3FN.png)
+![Diagrama ER](../assets/ER_3FN.png)
 
-*Diagrama ER*
+*Diagrama Entidad-Relación*
 
 ## E.1 Entidades y atributos
 
