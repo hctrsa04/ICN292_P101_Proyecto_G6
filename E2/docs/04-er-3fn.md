@@ -99,13 +99,13 @@ C = crea, R = lee, U = actualiza. PV = Proveedor, LO = Lote, PR = Prenda, PU = P
 
 - Al **registrar el lote** se crean el Lote y sus Prendas, por lo que el costo de cada prenda queda asociado a su lote y se puede calcular el margen por prenda y por lote.
 
-- La **ficha de publicación** se guarda en Publicacion. Su fecha permite calcular cuántos días lleva una prenda publicada sin venderse. Sin embargo, las alertas de remate consideran un plazo de días a partir de la **fecha de recepción** del lote.
+- La **ficha de publicación** se guarda en Publicacion. Su fecha permite calcular cuántos días lleva una prenda publicada sin venderse. Sin embargo, como se mencionará más adelante, la fecha de publicación no es la referencia para el cálculo de las alertas de remate.
 
 - Al **registrar la venta**, el sistema ejecuta en paralelo el descuento de inventario (estado de Prenda), el cálculo del margen (DetallePedido) y el registro de la clienta (Cliente), tal como en el gateway AND del To-Be.
 
 - La **decisión de entrega** queda registrada en Pedido mediante *tipo_entrega* e *id_distribuidor*, que queda nulo cuando Belén entrega en persona.
 
-- La **alerta de remate** se apoya en las fechas de Publicacion y en el estado de Prenda. El margen que define Belén se guarda en AlertaRemate y con él se calcula el *precio_remate* de la prenda.
+- La **alerta de remate** se apoya en la fecha de recepción de Lote y en el estado de Prenda. El margen que define Belén se guarda en AlertaRemate y con él se calcula el *precio_remate* de la prenda.
 
 - El umbral y la frecuencia de revisión los configura Belén y se guardan como parámetros del sistema, no como una entidad del modelo.
 
