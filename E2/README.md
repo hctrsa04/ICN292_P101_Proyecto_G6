@@ -195,18 +195,22 @@ Con el celular y el computador en la misma red Wi-Fi:
 
 - **Disponibilidad (RNF-02) no garantizada:** la app corre en `localhost`; si el computador está apagado, no está disponible.
 - **Datos ficticios:** no hay datos reales de clientas en el repositorio (Ley 21.719, ver [`docs/07-etica-ley-21719.md`](docs/07-etica-ley-21719.md)).
-- Otras limitaciones del desarrollo: [`docs/Limitaciones_en_desarrollo.md`](docs/Limitaciones_en_desarrollo.md). Reglas confirmadas y decisiones pendientes con Belén: [`docs/08-supuestos.md`](docs/08-supuestos.md).
+- Otras limitaciones del desarrollo: [`docs/09-limitaciones.md`](docs/09-limitaciones.md). Reglas confirmadas y decisiones pendientes con Belén: [`docs/08-supuestos.md`](docs/08-supuestos.md).
 
 ## 9. Documentación y entregables
 
 | Ubicación | Contenido |
 |---|---|
+| `docs/00-caso-pyme.md` | Resumen del caso Alta Facha y del problema |
+| `docs/02-bpmn.md` | BPMN As-Is y To-Be finales, cambios respecto de la E1 y dónde se implementa cada tarea |
 | `docs/01-requerimientos.md` | RF y RNF con su estado y la trazabilidad requisito → código → prueba |
 | `docs/04-er-3fn.md` | Modelo entidad-relación en 3FN, normalización y trazabilidad BPMN → entidades |
+| `docs/04-sql-consultas.md` | Consultas SQL de negocio, resultados e interpretación |
 | `docs/05-automatizacion.md` | Automatización de la alerta de remate, con pruebas y capturas |
 | `docs/05-kpi-dashboard.md` | KPI: fórmula, fuente en el modelo, meta y responsable |
 | `docs/07-etica-ley-21719.md` | Riesgos y medidas de protección de datos (Ley 21.719) |
-| `docs/08-supuestos.md`, `docs/Limitaciones_en_desarrollo.md` | Reglas de negocio confirmadas, decisiones pendientes y limitaciones |
+| `docs/08-supuestos.md`, `docs/09-limitaciones.md` | Reglas de negocio confirmadas, decisiones pendientes y limitaciones |
+| `docs/CHANGELOG.md` | Cambios relevantes entre la E1 y la E2 |
 | `assets/` | Diagramas BPMN, ER y capturas de las pruebas |
 | `informe/` | Informe E2 en PDF y versión editable (Word o LaTeX) |
 | `presentacion/` | Presentación de la defensa |

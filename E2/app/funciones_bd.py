@@ -245,7 +245,7 @@ def atender_alerta(id_alerta, margen):
     # Belen define el margen de remate: la prenda pasa a 'en_remate' con su precio de remate
     # y la alerta queda 'atendida'. Todo en una transaccion.
     # Margen >= 0: el precio de remate nunca queda bajo el costo (ver L2 en
-    # ../docs/Limitaciones_en_desarrollo.md).
+    # ../docs/09-limitaciones.md).
     if isinstance(margen, bool) or not isinstance(margen, (int, float)) or margen < 0:
         raise ValueError("El margen debe ser un número mayor o igual a 0 %.")
 

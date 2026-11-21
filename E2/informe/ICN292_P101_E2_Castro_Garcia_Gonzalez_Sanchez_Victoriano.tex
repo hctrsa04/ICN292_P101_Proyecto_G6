@@ -1,0 +1,1025 @@
+\documentclass[11pt,letterpaper]{article}
+
+%%% LANGUAGE: Spanish
+\usepackage[spanish,english]{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}\renewcommand{\figurename}{Figura}}
+
+%%% ENCODING
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{tabularx}
+
+%%
+%%%%GENERAL INFORMATION%%%%
+%%
+\newcommand{\theCampus}{Campus Vitacura}
+\newcommand{\theAssignment}{SIG}
+\newcommand{\therevision}{MC|RG|IG|HS|DV}
+
+%%% PACKAGES
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{verbatim}
+\usepackage[table]{xcolor}
+\usepackage{pdflscape}
+\usepackage{listings}
+
+%%% PAGE DIMENSIONS
+\usepackage[margin=25mm,inner=30mm]{geometry}
+\usepackage{parskip}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{24pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\lhead{\includegraphics[scale=.15]{Logos/header_utfsm.png}}\cfoot{}
+\cfoot{\textbf{\thepage}}
+\rfoot{\therevision}
+\lfoot{\theAssignment}\chead{}
+\rhead{}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{0.8em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{0.8em}{}
+
+\usepackage[numbers]{natbib}
+
+%%% TABLE OF CONTENTS APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\makeatletter
+\def\tableofcontents{%
+ \newpage
+ \centerline{\large\scshape Tabla de Contenidos}
+ \vspace*{0.3in}
+ \@mkboth{CONTENTS}{CONTENTS}
+ \@starttoc{toc}
+}
+\makeatother
+
+\usepackage[section]{placeins}
+
+%%% BLOQUES DE CÓDIGO
+\lstset{basicstyle=\ttfamily\scriptsize, breaklines=true, columns=fullflexible, keepspaces=true,
+  backgroundcolor=\color[gray]{0.95}, frame=none, xleftmargin=2pt, aboveskip=4pt, belowskip=8pt,
+  breakatwhitespace=false, upquote=true}
+
+
+%%% PÁGINAS HORIZONTALES (encabezado y pie se mantienen)
+\newlength{\savedTW}\newlength{\savedOSM}\newlength{\savedESM}\newlength{\savedTM}\newlength{\savedTH}
+\AtBeginDocument{\setlength{\savedTW}{\textwidth}\setlength{\savedOSM}{\oddsidemargin}\setlength{\savedESM}{\evensidemargin}%
+  \setlength{\savedTM}{\topmargin}\setlength{\savedTH}{\textheight}}
+\newcommand{\landscapeon}{\clearpage
+  \pdfpagewidth=11in \pdfpageheight=8.5in \paperwidth=11in \paperheight=8.5in
+  \setlength{\textwidth}{\dimexpr 11in-50mm\relax}
+  \setlength{\oddsidemargin}{\dimexpr 25mm-1in\relax}\setlength{\evensidemargin}{\oddsidemargin}
+  \setlength{\topmargin}{\dimexpr 18mm-1in\relax}
+  \setlength{\textheight}{\dimexpr 8.5in-18mm-\headheight-\headsep-22mm\relax}
+  \onecolumn\small}
+\newcommand{\landscapeoff}{\clearpage
+  \pdfpagewidth=8.5in \pdfpageheight=11in \paperwidth=8.5in \paperheight=11in
+  \setlength{\textwidth}{\savedTW}\setlength{\oddsidemargin}{\savedOSM}\setlength{\evensidemargin}{\savedESM}%
+  \setlength{\topmargin}{\savedTM}\setlength{\textheight}{\savedTH}
+  \onecolumn\normalsize}
+
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{8pt}
+
+%------------------------------------------------------------------------------
+%%%% TITLE PAGE
+%------------------------------------------------------------------------------
+\begin{document}
+\selectlanguage{spanish}
+
+\begin{titlepage}
+\begin{figure}[H]
+\includegraphics[width = 0.4\linewidth]{Logos/logo_di.png}
+\hspace{144pt}
+\vspace{-70pt}
+\end{figure}
+\vspace{60mm}
+\begin{center}
+\hrule
+\vspace{2mm}
+{\Huge \textbf{\sc Informe de Entrega 2 (E2):}} \\
+\vspace{2mm}
+{\Large \sc{\textit{Solución SIG para la PyME Alta Facha}}}
+\vspace{2mm}
+\hrule
+\vspace{1cm}
+
+%%%%AUTHORS%%%%
+\centering
+    {\textbf{Matias Castro Guerrero} \\
+    {\small Ingeniería Civil Industrial, 202260680-0, \emph{matias.castrog@usm.cl}}\\
+    \textbf{Ricardo García Da Silva} \\
+    {\small Ingeniería Civil Industrial, 202256604-3, \emph{ricardo.garciad@usm.cl}}\\
+    \textbf{Iván González Vela} \\
+    {\small Ingeniería Civil Industrial, 202260622-3, \emph{ivan.gonzalezv@usm.cl}}\\
+    \textbf{Héctor Sánchez Andrade} \\
+    {\small Ingeniería Civil Industrial, 202260587-1, \emph{hector.sancheza@usm.cl}}\\
+    \textbf{Diego Victoriano Rodríguez} \\
+    {\small Ingeniería Civil Industrial, 202260586-3, \emph{diego.victoriano@usm.cl}}
+}
+
+    \vspace{0.5cm}
+    {ICN292 - Sistemas de Información para la Gestión.} \\
+    {\textbf{Paralelo:} 101}
+
+    \vspace{0.5cm}
+    \textbf{Profesores:} José Luis Sáez T. \textbar\ José Miguel González P.\\[0.1 cm]
+    \textbf{Ayudantes:} Valeria Bobadilla \textbar\ Catalina Bodaleo \textbar\ Luis Contreras \textbar\ Benjamín Jara
+
+    \vspace{0.5cm}
+    \textbf{Link del repositorio:} \\ \url{https://github.com/hctrsa04/ICN292_P101_Proyecto_G6}
+
+    \vfill
+    \textsc{noviembre, 2026}\\[0.5cm]
+    \textsc{\theCampus}
+\end{center}
+
+\clearpage
+\parindent=0mm
+\end{titlepage}
+
+%------------ RESUMEN EJECUTIVO ----------
+\section{Resumen ejecutivo}
+
+\subsection{Problema}
+
+Alta Facha es un emprendimiento unipersonal de venta de vestuario femenino por Instagram, en Las Condes, cuya dueña es Belén Rojas. Belén compra ropa por fardo a mayoristas, la prepara, la publica y la vende por mensaje directo. Según sus respuestas al cuestionario del equipo, el catálogo publicado en Instagram funciona como su registro activo de stock, el archivo Excel es solo un respaldo, y organizar el inventario, los costos por unidad y los registros asociados le toma aproximadamente un día.
+
+Por eso no hay un registro del costo de cada lote, del margen de cada venta ni de la antigüedad de cada prenda, y las prendas sin vender se identifican «al ojo» al final de la temporada.
+
+\subsection{Solución}
+
+Se construyó un Sistema de Información para la Gestión (SIG) local, coherente con los BPMN As-Is y To-Be finales (sección 3), que tiene cuatro partes:
+\begin{itemize}
+\item \textbf{Datos:} modelo entidad-relación normalizado a tercera forma normal (3FN), con 10 tablas en SQLite (9 entidades y una tabla de parámetros), creadas con \texttt{schema.sql}, con claves primarias, foráneas y restricciones.
+\item \textbf{Consultas:} seis consultas de negocio (stock, ventas, margen por prenda, mes y lote, y antigüedad), interpretadas en la sección 5.
+\item \textbf{Automatización:} una revisión diaria de la antigüedad del stock (\texttt{alerta\_\allowbreak{}remate.py}, programada con el Programador de tareas de Windows como homóloga de n8n) que genera alertas de remate con un umbral que configura la dueña.
+\item \textbf{Aplicación web local} (Streamlit), con acceso por clave, que permite a Belén registrar lotes y ventas, marcar entregas, atender las alertas de remate y ver cinco indicadores (K1 a K5) en un tablero, sin escribir SQL (secciones 6 y 7). Se usa desde el computador o el celular.
+\end{itemize}
+
+\subsection{Resultado}
+
+Cifras obtenidas con los scripts del repositorio sobre una base nueva con datos de prueba ficticios; no son resultados reales de la PYME.
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.4468\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5532\linewidth-2\tabcolsep\relax}}
+\caption{Resultados verificados sobre los datos de prueba.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Aspecto}} & \textbf{\textbf{Resultado}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Aspecto}} & \textbf{\textbf{Resultado}} \\
+\hline
+\endhead
+\textbf{Base de datos} & 10 tablas; 3 lotes, 26 prendas, 7 pedidos y 12 prendas vendidas. \\
+\hline
+\textbf{Ventas y margen} & Ventas por 183.000 CLP y margen de 145.000 CLP (79,2 \% de las ventas). \\
+\hline
+\textbf{Recuperación de la inversión por lote} & 2,83, 2,43 y 1,25 veces el costo del lote; la meta de la dueña es duplicarla. \\
+\hline
+\textbf{Stock} & 14 prendas en stock (13 disponibles y 1 en remate); 7 de las 13 disponibles superan el umbral de 30 días. \\
+\hline
+\textbf{Alerta automática} & 7 alertas en la primera ejecución, ninguna en la segunda y 3 con umbral 50; la tarea diaria programada terminó con resultado 0x0 (correcto). \\
+\hline
+\textbf{Aplicación y tablero} & Siete pantallas y cinco indicadores que muestran los mismos valores que las consultas SQL; las 94 pruebas automáticas del repositorio pasan en una instalación limpia. \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Limitaciones principales} (sección 10): datos ficticios, efecto en la operación real no medido, metas de los indicadores por acordar con la dueña (salvo K4), descuento de bienvenida y reservas sin implementar, y automatización con Python probada solo en Windows en lugar de n8n.
+
+
+%----------- TABLE OF CONTENTS -----------
+\tableofcontents
+\clearpage
+
+\section{Trazabilidad E1 → E2}
+
+Esta sección compara la Entrega 1 (E1) con la Entrega 2 (E2): qué se mantuvo, qué cambió y por qué. Cada cambio indica su origen, que puede ser la retroalimentación de la rúbrica de la E1, una inconsistencia entre diagramas, una respuesta de la dueña o un requisito del enunciado de la E2, y el archivo del repositorio que lo respalda. Los puntajes entre paréntesis son los de la rúbrica de la E1. El detalle de los cambios en los diagramas está en la sección 3 y el del modelo de datos, en la sección 4.
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2245\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4333\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1723\linewidth-2\tabcolsep\relax}}
+\caption{Qué se mantuvo y qué cambió entre la E1 y la E2, por área.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Área}} & \textbf{\textbf{Qué se mantuvo}} & \textbf{\textbf{Qué cambió y por qué}} & \textbf{\textbf{Respaldo}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Área}} & \textbf{\textbf{Qué se mantuvo}} & \textbf{\textbf{Qué cambió y por qué}} & \textbf{\textbf{Respaldo}} \\
+\hline
+\endhead
+\textbf{PYME y problema} & Alta Facha como caso, el equipo de cinco integrantes, el rubro y la operación por Instagram. & El problema se precisa con las respuestas de la dueña: el stock se lleva en el catálogo de Instagram (respuesta 7), el Excel es un respaldo (respuesta 1) y organizar inventario y costos toma aproximadamente un día. También se aclara que un mismo modelo puede repetirse, aunque cada unidad física es una fila (respuesta 3). Origen: rúbrica de la E1, 80/100 en «PYME y problema». & \texttt{E1/\allowbreak{}docs/\allowbreak{}00-caso-pyme.md}; \texttt{E1/\allowbreak{}evidencia-pyme/\allowbreak{}} \\
+\hline
+\textbf{Requerimientos} & Los 10 RF y los 5 RNF con su priorización MoSCoW y el alcance IN/OUT (96/100). & Los RF y RNF no cambian; su estado al cierre de la E2 está en la sección 6.3. Las tareas nuevas del To-Be (consulta de disponibilidad, definir margen de remate y calcular precio de remate) se apoyan en RF-09, RF-07 y RF-10. El umbral configurable de RF-10 se implementa en la tabla Configuracion. & \texttt{E1/\allowbreak{}docs/\allowbreak{}01-requerimientos.md} \\
+\hline
+\textbf{BPMN As-Is} & El proceso crítico: compra del lote, publicación en Instagram, consulta de la clienta, venta, entrega y registro. & Clienta, Mayorista, Mercado Pago y Distribuidor pasan a pools propios; se agregan los caminos de excepción, la verificación del pago y el remate de fin de temporada. Origen: rúbrica de la E1, 8/16 en notación y 27/36 en As-Is. & \texttt{E2/\allowbreak{}assets/\allowbreak{}BPMN} Alta Facha As-IS(corregido).jpeg \\
+\hline
+\textbf{BPMN To-Be} & Las intervenciones del SIG: fichas por prenda y de publicación, venta con descuento de stock, margen y clienta en paralelo, alerta de remate y marca de entrega. & Dos carriles (Belén y SIG) con tareas tipificadas, consulta de disponibilidad en el SIG, pago verificado antes de registrar la venta y ciclo de remate completo. Origen: rúbrica de la E1, 27/36 en To-Be. & \texttt{E2/\allowbreak{}assets/\allowbreak{}BPMN} Alta Facha To-Be(corregido).\texttt{jpeg.jpg} \\
+\hline
+\textbf{Modelo de datos} & Las entidades Prenda, Proveedor, Distribuidor, Cliente y Pedido, y la identidad propia de cada prenda. & El ER se normaliza a 3FN con cuatro entidades nuevas (Lote, DetallePedido, Publicacion y AlertaRemate) y una tabla de parámetros. Origen: la rúbrica de la E1 sugirió modelar Lote y DetallePedido, y el enunciado de la E2 exige un ER en 3FN justificado. & \texttt{E2/\allowbreak{}docs/\allowbreak{}04-er-3fn.md}; \texttt{E2/\allowbreak{}assets/\allowbreak{}ER\_\allowbreak{}3FN.png} \\
+\hline
+\textbf{Base de datos y consultas} & No existía en la E1. & El ER se materializa en \texttt{schema.sql} (10 tablas con PK, FK, CHECK y UNIQUE) con datos de prueba ficticios y consultas de stock, ventas, margen y antigüedad. Origen: el enunciado de la E2 pide scripts SQL ejecutables y al menos tres consultas interpretadas. & \texttt{E2/\allowbreak{}app/\allowbreak{}sql/\allowbreak{}}; \texttt{E2/\allowbreak{}docs/\allowbreak{}04-sql-consultas.md} \\
+\hline
+\textbf{Automatización} & El evento temporizador del To-Be que revisa los días sin venta, y la herramienta prevista en el stack (n8n o equivalente). & Las tareas «Evaluar días sin venta por prenda» y «Generar alerta de remate» pasan del diagrama a un script Python con umbral configurable, programado a diario. Se usa Python y no n8n porque n8n no accede directamente a la base SQLite (rúbrica de la E1, 18/24 en stack: faltaba decidir la herramienta). & \texttt{E2/\allowbreak{}app/\allowbreak{}alerta\_\allowbreak{}remate.py}; \texttt{E2/\allowbreak{}app/\allowbreak{}ejecutar\_\allowbreak{}alerta.bat}; \texttt{E2/\allowbreak{}docs/\allowbreak{}05-automatizacion.md} \\
+\hline
+\textbf{Arquitectura y stack} & La arquitectura de cuatro componentes (aplicación, persistencia, analítica y automatización) en localhost, con Python y SQLite. & La persistencia deja de ser tentativa: es el modelo en 3FN sobre SQLite. La automatización usa Python en lugar de n8n. La aplicación Streamlit se construyó sobre ese mismo modelo, con acceso por clave (sección 6). & \texttt{E2/\allowbreak{}README.md}; \texttt{E2/\allowbreak{}app/\allowbreak{}} \\
+\hline
+\textbf{Plan y riesgos (Ley 21.719)} & Los hitos de la E1 y los cinco riesgos de uso de datos. & Se analizan seis riesgos y sus medidas (sección 8): datos de prueba ficticios, Cliente con solo nombre, contacto y comuna, acceso por clave, y base de datos y clave excluidas del control de versiones. Origen: rúbrica de la E1, 15/20 en riesgos. & \texttt{E1/\allowbreak{}docs/\allowbreak{}05-plan-entrega.md}; \texttt{E2/\allowbreak{}docs/\allowbreak{}07-etica-ley-21719.md} \\
+\hline
+\textbf{Repositorio e informe} & La estructura \texttt{docs/\allowbreak{}}, \texttt{assets/\allowbreak{}} e \texttt{informe/\allowbreak{}} y el README (36/36). & El README de la E2 describe la arquitectura, la estructura y la puesta en marcha; la aplicación completa (código, SQL, scripts y pruebas) está en \texttt{E2/\allowbreak{}app/\allowbreak{}.} El informe lleva los apellidos de los cinco integrantes en el nombre del archivo (en la E1 se descontaron 5 puntos). & \texttt{E2/\allowbreak{}README.md} \\
+\hline
+\end{longtable}
+}
+
+\landscapeon
+
+\section{BPMN final y automatización}
+
+Los diagramas finales se presentan en formato horizontal para que sean legibles. Luego se explica qué cambió respecto de la E1, cómo se implementó la automatización y qué resultados dieron las pruebas.
+
+\subsection{BPMN As-Is final}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{img/bpmn_asis.png}
+\caption{Proceso As-Is de Alta Facha (versión corregida). Archivo: \texttt{E2/\allowbreak{}assets/\allowbreak{}BPMN Alta Facha As-IS(corregido).jpeg}.}
+\end{figure}
+
+\textbf{Cómo leerlo.} Belén es el único participante interno: compra el lote al mayorista, lo plancha y fotografía, publica en Instagram y atiende la consulta por mensaje directo. Revisa la disponibilidad manualmente y, si hay stock, confirma a la clienta, verifica el pago en Mercado Pago y entrega en persona o coordina el despacho con el distribuidor, según la cercanía a Las Condes. Cierra registrando la venta y calculando el margen en la planilla Excel. Hay dos finales de excepción (sin stock y sin respuesta de la clienta) y un flujo independiente de remate al fin de la temporada, en que las prendas sin vender se identifican «al ojo». Mayorista, Clienta, Mercado Pago y Distribuidor son pools externos, unidos por flujos de mensaje rotulados.
+\landscapeoff
+\landscapeon
+
+\subsection{BPMN To-Be final}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{img/bpmn_tobe.png}
+\caption{Proceso To-Be con el SIG (versión corregida). Archivo: \texttt{E2/\allowbreak{}assets/\allowbreak{}BPMN Alta Facha To-Be(corregido).jpeg.jpg}.}
+\end{figure}
+
+El pool de Alta Facha tiene dos carriles: Belén (tareas manuales y de usuario) y SIG (tareas de servicio sobre SQLite y Python). Al recibir el lote, Belén lo registra con costo y precio por prenda, y el SIG genera las fichas de prenda y de publicación. La consulta de la clienta se responde consultando el SIG. Tras verificar el pago, Belén registra la venta y el SIG ejecuta en paralelo el descuento de stock, el cálculo del margen y el registro de la clienta. Luego Belén entrega en persona o por distribuidor y marca la prenda como entregada, con lo que el SIG registra la fecha de entrega. En el carril del SIG, un temporizador de revisión periódica evalúa los días sin venta de cada prenda y, si hay prendas sobre el umbral, genera la alerta de remate; Belén define el margen de remate, el SIG calcula el precio y Belén publica las prendas en remate.
+\landscapeoff
+
+\subsection{Cambios respecto de la E1}
+
+Los cambios responden a la retroalimentación de la rúbrica de la E1 (puntajes entre paréntesis) y a la necesidad de que el To-Be y el modelo de datos cuenten la misma historia.
+\begin{itemize}
+\item \textbf{As-Is.} Pasa de un pool con tres carriles a un pool de Alta Facha y pools separados de Clienta, Mayorista, Mercado Pago y Distribuidor, unidos por flujos de mensaje rotulados (notación 8/16 y actores externos 12/16). Se agregan los dos finales de excepción (sin stock y sin respuesta de la clienta), la verificación del pago en Mercado Pago, el registro de la venta y el margen en el Excel (27/36) y el flujo de remate de fin de temporada, que es el punto de dolor de la antigüedad del stock.
+\item \textbf{To-Be: estructura.} Pasa de cuatro carriles con tareas sin tipificar a dos carriles (Belén y SIG), con tareas de usuario, de servicio y manuales, y finales con nombre.
+\item \textbf{To-Be: proceso.} Se agregan la consulta de disponibilidad en el SIG (que ataca la falta de control del inventario), el registro del lote con el costo y el precio de cada prenda (para el margen), la verificación del pago antes de registrar la venta (para evitar el registro tardío del As-Is), la fecha de entrega (RF-08) y el ciclo completo del remate: tras la alerta, Belén define el margen, el SIG calcula el precio y Belén publica las prendas, alineado con \texttt{AlertaRemate} y \texttt{precio\_\allowbreak{}remate} del ER.
+\end{itemize}
+La tabla completa de cambios por elemento está en \texttt{E2/\allowbreak{}docs/\allowbreak{}02-bpmn.md}.
+
+
+\subsection{Trazabilidad entre el BPMN To-Be y la automatización}
+
+De las tareas del To-Be, las que están en el carril del SIG y se activan por tiempo son las de la revisión periódica. La tabla siguiente muestra cómo cada elemento del diagrama se implementó y dónde está la evidencia.
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2128\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2660\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2872\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2340\linewidth-2\tabcolsep\relax}}
+\caption{Elementos del BPMN To-Be automatizados y su implementación.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Elemento del To-Be}} & \textbf{\textbf{Qué hace}} & \textbf{\textbf{Implementación}} & \textbf{\textbf{Evidencia}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Elemento del To-Be}} & \textbf{\textbf{Qué hace}} & \textbf{\textbf{Implementación}} & \textbf{\textbf{Evidencia}} \\
+\hline
+\endhead
+\textbf{Evento «Revisión periódica» (temporizador)} & Activa la revisión una vez al día. & Tarea del Programador de tareas de Windows que ejecuta \texttt{ejecutar\_\allowbreak{}alerta.bat} y agrega el resultado a \texttt{data/\allowbreak{}registro\_\allowbreak{}alertas.txt.} & Resultado 0x0 y registro actualizado (Figura 6). \\
+\hline
+\textbf{Tarea «Evaluar días sin venta por prenda (Python)»} & Calcula los días desde la recepción del lote de cada prenda disponible. & \texttt{alerta\_\allowbreak{}remate.py}: lee \texttt{Configuracion.umbral\_\allowbreak{}dias}, las prendas en estado disponible (Prenda) y la fecha de recepción (Lote). & 7 alertas con umbral 30 (Figura 3). \\
+\hline
+\textbf{Gateway «¿Prendas sobre el umbral?»} & Decide si hay prendas para remate; si no, termina. & El script descarta las prendas con alerta pendiente; si no queda ninguna, informa «Sin prendas para remate». & Segunda ejecución sin alertas nuevas (Figura 4). \\
+\hline
+\textbf{Tarea «Generar alerta de remate (Python)»} & Registra una alerta por prenda sobre el umbral. & INSERT en AlertaRemate con estado pendiente y los días sin venta. & Tabla AlertaRemate: 7 pendientes y 1 atendida de los datos de prueba. \\
+\hline
+\textbf{Nota «Umbral y frecuencia configurados por Belén»} & El umbral de días es un parámetro, no una constante. & Tabla Configuracion (una fila), que Belén cambia en la pantalla Alertas. La frecuencia se define en el desencadenador de la tarea programada, no en la base de datos. & Umbral 50: 3 alertas (Figura 5). \\
+\hline
+\textbf{Tareas «Definir margen de remate» y «Calcular precio de remate»} & Belén fija el margen y el SIG calcula el precio de remate. & Belén ingresa el margen en la pantalla Alertas y el SIG calcula el precio de remate (costo × (1 + margen)), deja la prenda en estado \texttt{en\_\allowbreak{}remate} y marca la alerta como atendida, todo en una sola transacción. Los datos de prueba incluyen un caso: la prenda 10, con costo 3.000 y margen de remate 1,0, queda en remate a 6.000. & Consulta 1 de la sección 5 (prenda 10). \\
+\hline
+\end{longtable}
+}
+
+
+\subsection{Automatización: alerta de remate}
+
+\textbf{Objetivo.} Reemplazar la práctica actual, en que Belén identifica «al ojo» las prendas sin vender al final de la temporada, por una revisión periódica basada en la antigüedad de cada prenda.
+
+\textbf{Herramienta.} Un script en Python (\texttt{alerta\_\allowbreak{}remate.py)} programado con el Programador de tareas de Windows, como herramienta homóloga de n8n. Se eligió porque n8n no accede directamente a la base SQLite, mientras que Python lo hace con el módulo estándar sqlite3, sin instalar nada adicional.
+
+\textbf{Datos que usa.} Configuracion (umbral de días), Prenda (estado), Lote (fecha de recepción, desde la cual se cuentan los días) y AlertaRemate (registro de las alertas).
+
+\textbf{Lógica.} Lee el umbral definido por Belén, busca las prendas con estado disponible cuyos días desde la recepción del lote superan el umbral, descarta las que ya tienen una alerta pendiente (para no duplicarlas) y registra una alerta pendiente por cada prenda encontrada; si no hay ninguna, termina con «Sin prendas para remate».
+
+Desde la carpeta \texttt{E2/\allowbreak{}app/}: \texttt{python crear\_\allowbreak{}bd.py} y \texttt{python alerta\_\allowbreak{}remate.py.} Para programarla: Programador de tareas → Crear tarea básica → Diariamente → Iniciar un programa → \texttt{ejecutar\_\allowbreak{}alerta.bat.} La misma revisión se puede lanzar a mano con el botón «Revisar ahora» de la pantalla Alertas de la aplicación.
+
+\subsection{Pruebas y resultados}
+
+Las pruebas se hicieron sobre los datos de prueba, con umbral inicial de 30 días, en un computador distinto al de desarrollo, lo que además verifica que la solución es reproducible. Los resultados esperados y obtenidos coincidieron: 7 alertas con umbral 30 (Figura 3), ninguna nueva en la segunda ejecución (Figura 4), 3 alertas con umbral 50 (Figura 5) y resultado 0x0 en la ejecución programada (Figura 6).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.30in]{img/captura_primera_ejecucion.png}
+\caption{Primera ejecución: 7 alertas generadas (prendas con 60 y 35 días sin venta).}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.30in]{img/captura_segunda_ejecucion.png}
+\caption{Segunda ejecución: sin alertas nuevas, porque las prendas ya tienen una alerta pendiente.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.30in]{img/captura_umbral_50.png}
+\caption{Umbral cambiado a 50 días: solo 3 alertas, las prendas con 60 días.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.80in]{img/captura_tarea_programada.png}
+\caption{Tarea programada diaria: resultado 0x0 (completada correctamente).}
+\end{figure}
+
+Las capturas las tomó el equipo al ejecutar los scripts; el detalle completo está en \texttt{E2/\allowbreak{}docs/\allowbreak{}05-automatizacion.md} y \texttt{E2/\allowbreak{}assets/\allowbreak{}.}
+
+\section{Modelo de datos: ER en 3FN y diccionario de datos}
+
+\subsection{Diagrama entidad-relación}
+
+El modelo parte de la entrevista con la dueña y del proceso To-Be. La Figura 7 muestra las nueve entidades con sus atributos, claves y relaciones; la tabla de parámetros Configuracion, que tiene una sola fila, no se relaciona con las demás.
+\begin{figure}[H]
+\centering
+\includegraphics[width=3.40in]{img/er_3fn.png}
+\caption{Diagrama ER en 3FN. Archivo: \texttt{E2/\allowbreak{}assets/\allowbreak{}ER\_\allowbreak{}3FN.png.}}
+\end{figure}
+
+\subsection{Entidades y relaciones}
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4623\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3677\linewidth-2\tabcolsep\relax}}
+\caption{Entidades del modelo y su relación con el proceso.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Entidad}} & \textbf{\textbf{Descripción}} & \textbf{\textbf{Relación (cardinalidad)}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Entidad}} & \textbf{\textbf{Descripción}} & \textbf{\textbf{Relación (cardinalidad)}} \\
+\hline
+\endhead
+\textbf{Proveedor} & Mayorista al que Belén le compra los fardos. Solo se maneja su nombre. & Proveedor (1) – Lote (1,N): un proveedor abastece varios lotes y cada lote tiene un único proveedor. \\
+\hline
+\textbf{Lote} & Cada compra de un fardo, con fecha de recepción, costo total y cantidad de prendas. Permite calcular el margen por lote y la antigüedad del stock. & Lote (1) – Prenda (1,N): un lote contiene una o muchas prendas. \\
+\hline
+\textbf{Prenda} & Cada unidad física de ropa, con su costo, precio de venta, precio de remate y estado (disponible, en remate, vendida o entregada). & Prenda (1) – Publicacion (0,N); Prenda (1) – AlertaRemate (0,N); Prenda (1) – DetallePedido (0,1). \\
+\hline
+\textbf{Publicacion} & Ficha de publicación para Instagram. Una prenda puede publicarse más de una vez, por ejemplo al rematarse. & Cada publicación corresponde a una sola prenda. \\
+\hline
+\textbf{AlertaRemate} & Alerta que genera la automatización cuando una prenda supera el umbral. Guarda el margen de remate que define Belén. & Una prenda puede no tener alertas o tener varias si sigue sin venderse. \\
+\hline
+\textbf{Cliente} & Clienta que compra. Solo se guardan nombre, contacto y comuna, los datos necesarios para la venta y la entrega. & Cliente (1) – Pedido (1,N): en el diseño, la clienta se registra al vender y siempre tiene al menos un pedido (ver sección 10.2). \\
+\hline
+\textbf{Pedido} & Venta confirmada a una clienta, con el tipo de entrega (propia o distribuidor) y su fecha. & Pedido (1) – DetallePedido (1,N): un pedido incluye una o varias prendas. \\
+\hline
+\textbf{DetallePedido} & Prendas de cada pedido, con el precio final cobrado y el margen obtenido. & Resuelve la relación entre Pedido y Prenda. Como cada prenda se vende una sola vez, \texttt{id\_\allowbreak{}prenda} es único. \\
+\hline
+\textbf{Distribuidor} & Agencia de delivery que despacha cuando la entrega no es cercana a Las Condes. & Distribuidor (0,1) – Pedido (0,N): el pedido tiene un distribuidor o ninguno (entrega en persona). \\
+\hline
+\textbf{Configuracion} & Parámetros que ingresa Belén; hoy, el umbral de días sin venta. & Sin relaciones. Una sola fila (\texttt{id\_\allowbreak{}config} = 1). \\
+\hline
+\end{longtable}
+}
+
+
+\subsection{Normalización hasta 3FN}
+
+Para verificar que el modelo no tenga redundancias ni anomalías, se normalizó partiendo del registro de una venta tal como se anotaría hoy en una sola planilla, con las prendas del pedido como grupo repetitivo.
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2300\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2900\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3100\linewidth-2\tabcolsep\relax}}
+\caption{Normalización de 0FN a 3FN.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Forma}} & \textbf{\textbf{Regla}} & \textbf{\textbf{Problema detectado}} & \textbf{\textbf{Resultado}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Forma}} & \textbf{\textbf{Regla}} & \textbf{\textbf{Problema detectado}} & \textbf{\textbf{Resultado}} \\
+\hline
+\endhead
+\textbf{0FN} & Registro de una venta en una sola fila. & Existe un grupo repetitivo (las prendas del pedido): una celda guarda varios valores. & VENTA(\texttt{id\_\allowbreak{}pedido}, datos del pedido y de la clienta, \{datos de la prenda, de su lote y del proveedor\}). \\
+\hline
+\textbf{1FN} & Atributos atómicos y sin grupos repetitivos. & Los datos del pedido y de la clienta se repiten por cada prenda del pedido, y los del lote en cada prenda del mismo lote. & Una fila por prenda de cada pedido, con clave compuesta (\texttt{id\_\allowbreak{}pedido}, \texttt{id\_\allowbreak{}prenda).} \\
+\hline
+\textbf{2FN} & Ningún atributo no clave depende de solo una parte de la clave. & \texttt{id\_\allowbreak{}pedido} determina los datos del pedido y de la clienta; \texttt{id\_\allowbreak{}prenda} determina los de la prenda y su lote (dependencias parciales). Solo \texttt{precio\_\allowbreak{}final} y margen dependen de ambos. & Tres tablas: PEDIDO, PRENDA y \texttt{DETALLE\_\allowbreak{}PEDIDO.} \\
+\hline
+\textbf{3FN} & Ningún atributo no clave depende de otro atributo no clave. & En PEDIDO, los datos de la clienta dependen de la clienta; en PRENDA, los del lote y el proveedor dependen del lote (dependencias transitivas). & Se crean CLIENTE, LOTE y PROVEEDOR; PEDIDO y PRENDA conservan solo la FK. PUBLICACION y \texttt{ALERTA\_\allowbreak{}REMATE} ya cumplían 3FN. \\
+\hline
+\end{longtable}
+}
+
+
+El resultado coincide con el ER de la Figura 7.
+
+\subsection{Anomalías que evita el modelo}
+\begin{itemize}
+\item \textbf{Inserción.} En la planilla única no se puede registrar un lote ni su proveedor hasta que exista una venta de una de sus prendas. En el modelo en 3FN, el lote y sus prendas se registran al comprar el fardo, antes de cualquier venta.
+\item \textbf{Actualización.} En la planilla, si cambia el contacto de una clienta o el costo de un lote, hay que corregirlo en cada fila donde aparece y los datos pueden contradecirse. En el modelo, el dato vive en una sola fila de Cliente o de Lote, y el resto solo lo referencia por su clave.
+\item \textbf{Eliminación.} En la planilla, al borrar la única venta de una clienta o la única prenda de un lote se pierde el dato de la clienta o el costo del lote. En el modelo, Cliente y Lote son tablas independientes.
+\end{itemize}
+
+\subsection{Decisiones de diseño}
+\begin{itemize}
+\item \textbf{Proveedor y Distribuidor:} como solo guardan el nombre, separarlos no es una exigencia de la 3FN sino una decisión de diseño, para evitar nombres escritos de distintas formas y poder agregar datos en el futuro.
+\item \textbf{Margen:} DetallePedido.margen es un atributo derivado (\texttt{precio\_\allowbreak{}final} − costo de la prenda). Se almacena porque lo exige RF-04 y deja un registro histórico del margen de cada venta.
+\item \textbf{Clave de DetallePedido:} como cada prenda se vende una sola vez, \texttt{id\_\allowbreak{}prenda} también identifica la fila (clave candidata, marcada como UNIQUE). Se mantiene la clave compuesta por coherencia con el modelo.
+\item \textbf{Prenda como unidad física:} un mismo modelo puede repetirse en una o dos unidades por color (respuesta 3 de la dueña), pero cada unidad es una fila de Prenda y se vende una sola vez.
+\item \textbf{Precio efectivamente cobrado:} \texttt{DetallePedido.precio\_\allowbreak{}final} guarda el precio cobrado y el modelo permite que sea distinto del precio de venta, por ejemplo por el 10 \% de bienvenida a clientas nuevas (respuesta 4). Ese descuento aún no está implementado en la aplicación (sección 10.2).
+\item \textbf{Parámetros:} el umbral de días se guarda en la tabla Configuracion y no como una entidad del negocio.
+\end{itemize}
+
+\subsection{Diccionario de datos}
+
+Los tipos son los de SQLite. Los importes son enteros en pesos chilenos (CLP) y las fechas se guardan como texto en formato AAAA-MM-DD. PK es clave primaria y FK, clave foránea. Cada atributo se indica con su tipo y su regla.
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1400\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.8600\linewidth-2\tabcolsep\relax}}
+\caption{Diccionario de datos (\texttt{schema.sql}).}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Tabla}} & \textbf{\textbf{Atributos (tipo y regla)}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Tabla}} & \textbf{\textbf{Atributos (tipo y regla)}} \\
+\hline
+\endhead
+\textbf{Proveedor} & \texttt{id\_\allowbreak{}proveedor}: INTEGER, PK, autoincremental; \texttt{nombre}: TEXT, obligatorio. \\
+\hline
+\textbf{Lote} & \texttt{id\_\allowbreak{}lote}: INTEGER, PK; \texttt{id\_\allowbreak{}proveedor}: INTEGER, FK → Proveedor; \texttt{fecha\_\allowbreak{}recepcion}: TEXT, obligatorio; origen del conteo de días en stock; \texttt{costo\_\allowbreak{}total}: INTEGER, costo del fardo en CLP; \texttt{cantidad\_\allowbreak{}prendas}: INTEGER, obligatorio. \\
+\hline
+\textbf{Prenda} & \texttt{id\_\allowbreak{}prenda}: INTEGER, PK; \texttt{id\_\allowbreak{}lote}: INTEGER, FK → Lote; \texttt{tipo, talla}: TEXT, obligatorios; \texttt{costo}: INTEGER, costo de la prenda en CLP; \texttt{precio\_\allowbreak{}venta}: INTEGER, obligatorio; \texttt{precio\_\allowbreak{}remate}: INTEGER, nulo hasta que se define un remate; \texttt{estado}: TEXT, CHECK: disponible, \texttt{en\_\allowbreak{}remate}, vendida o entregada; por defecto disponible. \\
+\hline
+\textbf{Publicacion} & \texttt{id\_\allowbreak{}publicacion}: INTEGER, PK; \texttt{id\_\allowbreak{}prenda}: INTEGER, FK → Prenda; \texttt{fecha\_\allowbreak{}publicacion}: TEXT, obligatorio; \texttt{descripcion, foto}: TEXT, opcionales. \\
+\hline
+\textbf{Cliente} & \texttt{id\_\allowbreak{}cliente}: INTEGER, PK; \texttt{nombre}: TEXT, obligatorio; \texttt{contacto, comuna}: TEXT, opcionales. \\
+\hline
+\textbf{Distribuidor} & \texttt{id\_\allowbreak{}distribuidor}: INTEGER, PK; \texttt{nombre}: TEXT, obligatorio. \\
+\hline
+\textbf{Pedido} & \texttt{id\_\allowbreak{}pedido}: INTEGER, PK; \texttt{id\_\allowbreak{}cliente}: INTEGER, FK → Cliente; \texttt{id\_\allowbreak{}distribuidor}: INTEGER, FK → Distribuidor; nulo si Belén entrega en persona; \texttt{fecha\_\allowbreak{}venta}: TEXT, obligatorio; \texttt{tipo\_\allowbreak{}entrega}: TEXT, CHECK: propia o distribuidor; \texttt{fecha\_\allowbreak{}entrega}: TEXT, nulo mientras no se entregue. \\
+\hline
+\textbf{DetallePedido} & \texttt{id\_\allowbreak{}pedido}: INTEGER, PK compuesta, FK → Pedido; \texttt{id\_\allowbreak{}prenda}: INTEGER, PK compuesta, FK → Prenda, UNIQUE: cada prenda se vende una sola vez; \texttt{precio\_\allowbreak{}final}: INTEGER, precio cobrado en CLP; \texttt{margen}: INTEGER, \texttt{precio\_\allowbreak{}final} − costo de la prenda. \\
+\hline
+\textbf{AlertaRemate} & \texttt{id\_\allowbreak{}alerta}: INTEGER, PK; \texttt{id\_\allowbreak{}prenda}: INTEGER, FK → Prenda; \texttt{fecha\_\allowbreak{}alerta, dias\_\allowbreak{}sin\_\allowbreak{}venta}: TEXT, INTEGER; obligatorios; \texttt{margen\_\allowbreak{}remate}: REAL, lo define Belén al atender la alerta (1,0 = 100 \% sobre el costo); \texttt{estado\_\allowbreak{}alerta}: TEXT, CHECK: pendiente o atendida; por defecto pendiente. \\
+\hline
+\textbf{Configuracion} & \texttt{id\_\allowbreak{}config}: INTEGER, PK, CHECK = 1 (una sola fila); \texttt{umbral\_\allowbreak{}dias}: INTEGER, obligatorio; valor inicial 30. \\
+\hline
+\end{longtable}
+}
+
+
+\subsection{Trazabilidad entre el BPMN To-Be y el modelo de datos}
+
+La tabla muestra qué entidades crea (C), lee (R) o actualiza (U) cada tarea del To-Be. PV: Proveedor; LO: Lote; PR: Prenda; PU: Publicacion; AR: AlertaRemate; CL: Cliente; PE: Pedido; DP: DetallePedido; DI: Distribuidor.
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.3127\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0764\linewidth-2\tabcolsep\relax}}
+\caption{Tareas del BPMN To-Be y entidades que usan.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Tarea del To-Be}} & \textbf{\textbf{PV}} & \textbf{\textbf{LO}} & \textbf{\textbf{PR}} & \textbf{\textbf{PU}} & \textbf{\textbf{AR}} & \textbf{\textbf{CL}} & \textbf{\textbf{PE}} & \textbf{\textbf{DP}} & \textbf{\textbf{DI}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Tarea del To-Be}} & \textbf{\textbf{PV}} & \textbf{\textbf{LO}} & \textbf{\textbf{PR}} & \textbf{\textbf{PU}} & \textbf{\textbf{AR}} & \textbf{\textbf{CL}} & \textbf{\textbf{PE}} & \textbf{\textbf{DP}} & \textbf{\textbf{DI}} \\
+\hline
+\endhead
+\textbf{Registrar lote y prendas} & R & C & C &  &  &  &  &  &  \\
+\hline
+\textbf{Generar fichas por prenda} &  & R & U &  &  &  &  &  &  \\
+\hline
+\textbf{Generar ficha de publicación} &  &  & R & C &  &  &  &  &  \\
+\hline
+\textbf{Consultar disponibilidad en SIG} &  &  & R &  &  &  &  &  &  \\
+\hline
+\textbf{Registrar venta en SIG} &  &  & R &  &  &  & C & C &  \\
+\hline
+\textbf{Descontar prenda del inventario} &  &  & U &  &  &  &  &  &  \\
+\hline
+\textbf{Calcular y registrar margen} &  &  & R &  &  &  &  & U &  \\
+\hline
+\textbf{Registrar o actualizar clienta} &  &  &  &  &  & C/U &  &  &  \\
+\hline
+\textbf{Coordinar despacho con distribuidor} &  &  &  &  &  &  & U &  & R \\
+\hline
+\textbf{Marcar prenda como entregada} &  &  & U &  &  &  & U &  &  \\
+\hline
+\textbf{Evaluar días sin venta por prenda} &  &  & R & R &  &  &  &  &  \\
+\hline
+\textbf{Generar alerta de remate} &  &  &  &  & C &  &  &  &  \\
+\hline
+\textbf{Definir margen de remate} &  &  &  &  & U &  &  &  &  \\
+\hline
+\textbf{Calcular precio de remate} &  &  & U &  & R &  &  &  &  \\
+\hline
+\end{longtable}
+}
+
+
+\subsection{Cambios del modelo de datos respecto de la E1}
+
+Respecto del ER preliminar de la E1, \texttt{Prenda} recibe \texttt{id\_\allowbreak{}lote} y costo y pierde \texttt{fecha\_\allowbreak{}ingreso}, que ahora se obtiene del lote; \texttt{Proveedor} se relaciona con \texttt{Lote} y no con \texttt{Prenda}, porque Belén compra fardos completos; \texttt{Cliente} agrega la comuna; \texttt{Pedido} retira \texttt{canal\_\allowbreak{}venta} y agrega \texttt{fecha\_\allowbreak{}entrega}, porque la entrega cierra el proceso (RF-08). Se agregan cuatro entidades nuevas: \texttt{Lote} (costo total y fecha de recepción, para el margen por lote y la antigüedad), \texttt{DetallePedido} (precio final y margen de cada prenda vendida, con \texttt{id\_\allowbreak{}prenda} único), \texttt{Publicacion} (ficha de cada prenda, que puede repetirse al rematar) y \texttt{AlertaRemate} (alerta con los días sin venta y el margen de remate), además de la tabla de parámetros \texttt{Configuracion} (umbral de días; la frecuencia de revisión se define en la tarea programada). Los motivos son la rúbrica de la E1, que sugirió modelar lote y detalle del pedido, y las tareas del BPMN To-Be. El detalle está en \texttt{E2/\allowbreak{}docs/\allowbreak{}04-er-3fn.md}.
+
+\section{Diseño SQL y resultados de las consultas de negocio}
+
+\subsection{Diseño de la base de datos}
+
+El motor es SQLite, que se usa desde Python con el módulo estándar sqlite3, sin instalar nada adicional. La base se crea con tres archivos de la carpeta \texttt{E2/\allowbreak{}app/\allowbreak{}} (carpeta \texttt{sql/}) y dos scripts:
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2447\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.7553\linewidth-2\tabcolsep\relax}}
+\caption{Archivos SQL y scripts de la base de datos (carpeta \texttt{E2/\allowbreak{}app/}).}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Archivo}} & \textbf{\textbf{Contenido}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Archivo}} & \textbf{\textbf{Contenido}} \\
+\hline
+\endhead
+\textbf{\texttt{sql/\allowbreak{}schema.sql}} & Crea las 10 tablas con 10 claves primarias (dos de ellas, en DetallePedido, forman una clave compuesta), 8 claves foráneas, 4 restricciones CHECK (estado de la prenda, tipo de entrega, estado de la alerta y fila única de Configuracion) y una restricción UNIQUE (\texttt{DetallePedido.id\_\allowbreak{}prenda).} Activa PRAGMA \texttt{foreign\_\allowbreak{}keys} = ON. \\
+\hline
+\textbf{\texttt{sql/\allowbreak{}datos\_\allowbreak{}prueba.sql}} & Inserta datos de prueba ficticios y coherentes con la PYME: 2 proveedores, 3 lotes, 26 prendas, 26 publicaciones, 4 clientas, 2 distribuidores, 7 pedidos con 12 prendas vendidas, 1 alerta atendida y el umbral inicial de 30 días. \\
+\hline
+\textbf{\texttt{sql/\allowbreak{}consultas.sql}} & Consultas de negocio (sección 5.2). El detalle está en \texttt{E2/\allowbreak{}docs/\allowbreak{}04-sql-consultas.md}. \\
+\hline
+\textbf{\texttt{crear\_\allowbreak{}bd.py}} & Elimina y recrea \texttt{data/\allowbreak{}altafacha.db}, ejecuta \texttt{schema.sql} y \texttt{datos\_\allowbreak{}prueba.sql.} \\
+\hline
+\textbf{\texttt{probar\_\allowbreak{}consultas.py}} & Ejecuta las consultas de \texttt{consultas.sql} y muestra sus resultados. \\
+\hline
+\textbf{\texttt{alerta\_\allowbreak{}remate.py}} & Automatización de la alerta de remate (sección 3.5). \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Datos de prueba.} Son sintéticos: las clientas se llaman «Clienta Prueba 1» a «Clienta Prueba 4» y los proveedores y distribuidores son ficticios. Las fechas son relativas al día de creación de la base (por ejemplo, el lote 1 se recibe 60 días antes), por lo que los resultados de las consultas 1, 2c y 3 son los mismos cualquier día; solo cambia el reparto por mes de la consulta 2b.
+
+\textbf{Verificación.} Se creó la base desde cero con los scripts del repositorio (SQLite 3.53.1, Python 3.13) y las consultas se ejecutaron sin errores; las tablas siguientes son los resultados del 20 de noviembre de 2026.
+
+\subsection{Consultas de negocio e interpretación}
+
+\subsubsection*{Consulta 1. Stock disponible y su antigüedad}
+
+\textbf{Pregunta de negocio:} ¿qué prendas se pueden vender hoy y cuánto tiempo llevan en stock?
+\begin{lstlisting}
+SELECT p.id_prenda, p.tipo, p.talla, p.precio_venta, p.precio_remate, p.estado,
+       CAST(julianday('now') - julianday(l.fecha_recepcion) AS INTEGER) AS dias_en_stock
+FROM Prenda p JOIN Lote l ON p.id_lote = l.id_lote
+WHERE p.estado IN ('disponible', 'en_remate')
+ORDER BY dias_en_stock DESC;
+\end{lstlisting}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1170\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1489\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.0957\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1809\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1809\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1383\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1383\linewidth-2\tabcolsep\relax}}
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{talla}} & \textbf{\textbf{\texttt{precio\_\allowbreak{}venta}}} & \textbf{\textbf{\texttt{precio\_\allowbreak{}remate}}} & \textbf{\textbf{estado}} & \textbf{\textbf{\texttt{dias\_\allowbreak{}en\_\allowbreak{}stock}}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{talla}} & \textbf{\textbf{\texttt{precio\_\allowbreak{}venta}}} & \textbf{\textbf{\texttt{precio\_\allowbreak{}remate}}} & \textbf{\textbf{estado}} & \textbf{\textbf{\texttt{dias\_\allowbreak{}en\_\allowbreak{}stock}}} \\
+\hline
+\endhead
+7 & blusa & M & 12.000 & — & disponible & 60 \\
+\hline
+8 & vestido & L & 15.000 & — & disponible & 60 \\
+\hline
+9 & falda & S & 12.000 & — & disponible & 60 \\
+\hline
+10 & blusa & L & 12.000 & 6.000 & \texttt{en\_\allowbreak{}remate} & 60 \\
+\hline
+15 & abrigo & M & 18.000 & — & disponible & 35 \\
+\hline
+16 & chaqueta & L & 18.000 & — & disponible & 35 \\
+\hline
+17 & blusa & M & 13.000 & — & disponible & 35 \\
+\hline
+18 & falda & L & 13.000 & — & disponible & 35 \\
+\hline
+21 & blusa & S & 12.000 & — & disponible & 10 \\
+\hline
+22 & blusa & M & 12.000 & — & disponible & 10 \\
+\hline
+23 & falda & M & 12.000 & — & disponible & 10 \\
+\hline
+24 & vestido & S & 15.000 & — & disponible & 10 \\
+\hline
+25 & chaqueta & L & 17.000 & — & disponible & 10 \\
+\hline
+26 & abrigo & M & 18.000 & — & disponible & 10 \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Interpretación.} Hay 14 prendas en stock: 13 disponibles y 1 en remate (la prenda 10, a 6.000 en vez de 12.000). Las cuatro más antiguas, del lote 1, llevan 60 días, y las del lote 2 llevan 35; es el tipo de información que hoy Belén no tiene sin revisar su catálogo a mano.
+
+\textbf{Consulta 1b (stock por tipo).} Con \texttt{GROUP BY tipo} sobre las prendas en stock se obtiene: blusa 5 (35,7 \% del stock), falda 3, abrigo 2, chaqueta 2 y vestido 2.
+
+\subsubsection*{Consulta 2. Ventas y margen por prenda vendida}
+
+\textbf{Pregunta de negocio:} ¿cuánto se ganó en cada prenda vendida? Cada fila une el pedido, la clienta y la prenda.
+\begin{lstlisting}
+SELECT pe.id_pedido, pe.fecha_venta, c.nombre AS clienta, p.id_prenda, p.tipo,
+       p.costo, d.precio_final, d.margen
+FROM DetallePedido d
+JOIN Pedido pe ON d.id_pedido = pe.id_pedido
+JOIN Prenda p ON d.id_prenda = p.id_prenda
+JOIN Cliente c ON pe.id_cliente = c.id_cliente
+ORDER BY pe.fecha_venta;
+\end{lstlisting}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1064\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1383\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.2021\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1064\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1170\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0957\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1383\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.0957\linewidth-2\tabcolsep\relax}}
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}pedido}}} & \textbf{\textbf{\texttt{fecha\_\allowbreak{}venta}}} & \textbf{\textbf{clienta}} & \textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{costo}} & \textbf{\textbf{precio final}} & \textbf{\textbf{margen}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}pedido}}} & \textbf{\textbf{\texttt{fecha\_\allowbreak{}venta}}} & \textbf{\textbf{clienta}} & \textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{costo}} & \textbf{\textbf{precio final}} & \textbf{\textbf{margen}} \\
+\hline
+\endhead
+1 & 2026-09-27 & Clienta Prueba 1 & 1 & vestido & 3.000 & 15.000 & 12.000 \\
+\hline
+1 & 2026-09-27 & Clienta Prueba 1 & 2 & vestido & 3.000 & 15.000 & 12.000 \\
+\hline
+2 & 2026-10-02 & Clienta Prueba 2 & 3 & blusa & 3.000 & 12.000 & 9.000 \\
+\hline
+3 & 2026-10-07 & Clienta Prueba 3 & 4 & abrigo & 3.000 & 16.000 & 13.000 \\
+\hline
+4 & 2026-10-22 & Clienta Prueba 1 & 5 & vestido & 3.000 & 15.000 & 12.000 \\
+\hline
+4 & 2026-10-22 & Clienta Prueba 1 & 11 & abrigo & 3.500 & 18.000 & 14.500 \\
+\hline
+5 & 2026-11-01 & Clienta Prueba 4 & 12 & chaqueta & 3.500 & 18.000 & 14.500 \\
+\hline
+5 & 2026-11-01 & Clienta Prueba 4 & 13 & vestido & 3.500 & 16.000 & 12.500 \\
+\hline
+6 & 2026-11-16 & Clienta Prueba 2 & 6 & falda & 3.000 & 12.000 & 9.000 \\
+\hline
+6 & 2026-11-16 & Clienta Prueba 2 & 14 & vestido & 3.500 & 16.000 & 12.500 \\
+\hline
+7 & 2026-11-18 & Clienta Prueba 3 & 19 & vestido & 3.000 & 15.000 & 12.000 \\
+\hline
+7 & 2026-11-18 & Clienta Prueba 3 & 20 & vestido & 3.000 & 15.000 & 12.000 \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Interpretación.} Se vendieron 12 prendas en 7 pedidos (cinco pedidos de dos prendas y dos de una). El margen por prenda va de 9.000 (blusa y falda a 12.000) a 14.500 (abrigo y chaqueta a 18.000), con un margen medio de unos 12.083 por prenda. Es el cálculo que hoy se hace a mano en el Excel y aquí queda registrado en cada venta.
+
+\subsubsection*{Consulta 2b. Ventas y margen por mes}
+\begin{lstlisting}
+SELECT strftime('%Y-%m', pe.fecha_venta) AS mes, COUNT(*) AS prendas_vendidas,
+       SUM(d.precio_final) AS ventas, SUM(d.margen) AS margen
+FROM DetallePedido d JOIN Pedido pe ON d.id_pedido = pe.id_pedido
+GROUP BY mes ORDER BY mes;
+\end{lstlisting}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2128\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2553\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2660\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2660\linewidth-2\tabcolsep\relax}}
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{mes}} & \textbf{\textbf{\texttt{prendas\_\allowbreak{}vendidas}}} & \textbf{\textbf{ventas}} & \textbf{\textbf{margen}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{mes}} & \textbf{\textbf{\texttt{prendas\_\allowbreak{}vendidas}}} & \textbf{\textbf{ventas}} & \textbf{\textbf{margen}} \\
+\hline
+\endhead
+2026-09 & 2 & 30.000 & 24.000 \\
+\hline
+2026-10 & 4 & 61.000 & 48.500 \\
+\hline
+2026-11 & 6 & 92.000 & 72.500 \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Interpretación.} En total, 183.000 CLP en ventas y 145.000 CLP de margen (79,2 \%). En esta ejecución, el margen crece de un mes a otro (24.000, 48.500 y 72.500). El reparto por mes depende del día en que se crea la base; los totales no.
+
+\subsubsection*{Consulta 2c. Ventas y margen por lote}
+
+\textbf{Pregunta de negocio:} ¿cuánto se ha recuperado de cada inversión? La dueña fija el precio para duplicar lo invertido en cada lote (respuesta 2 del cuestionario), por lo que la columna \texttt{veces\_\allowbreak{}inversion} es la que se contrasta con esa meta.
+\begin{lstlisting}
+SELECT l.id_lote, l.fecha_recepcion, l.costo_total, l.cantidad_prendas,
+       COUNT(d.id_prenda) AS prendas_vendidas,
+       COALESCE(SUM(d.precio_final), 0) AS ventas,
+       COALESCE(SUM(d.margen), 0) AS margen_prendas_vendidas,
+       ROUND(COALESCE(SUM(d.precio_final), 0) * 1.0 / l.costo_total, 2) AS veces_inversion
+FROM Lote l JOIN Prenda p ON p.id_lote = l.id_lote
+LEFT JOIN DetallePedido d ON d.id_prenda = p.id_prenda
+GROUP BY l.id_lote ORDER BY l.id_lote;
+\end{lstlisting}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.0851\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1489\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1170\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1277\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1277\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1064\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1596\linewidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr 0.1277\linewidth-2\tabcolsep\relax}}
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}lote}}} & \textbf{\textbf{fecha de recepción}} & \textbf{\textbf{costo total}} & \textbf{\textbf{cantidad de prendas}} & \textbf{\textbf{prendas vendidas}} & \textbf{\textbf{ventas}} & \textbf{\textbf{margen de prendas vendidas}} & \textbf{\textbf{veces inversión}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}lote}}} & \textbf{\textbf{fecha de recepción}} & \textbf{\textbf{costo total}} & \textbf{\textbf{cantidad de prendas}} & \textbf{\textbf{prendas vendidas}} & \textbf{\textbf{ventas}} & \textbf{\textbf{margen de prendas vendidas}} & \textbf{\textbf{veces inversión}} \\
+\hline
+\endhead
+1 & 2026-09-22 & 30.000 & 10 & 6 & 85.000 & 67.000 & 2,83 \\
+\hline
+2 & 2026-10-17 & 28.000 & 8 & 4 & 68.000 & 54.000 & 2,43 \\
+\hline
+3 & 2026-11-11 & 24.000 & 8 & 2 & 30.000 & 24.000 & 1,25 \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Interpretación.} Los lotes 1 y 2 ya recuperaron 2,83 y 2,43 veces lo invertido, con 6 de 10 y 4 de 8 prendas vendidas, por lo que superaron la meta de duplicar con prendas aún en stock. El lote 3, recibido hace 10 días, lleva 1,25 veces con 2 de 8 prendas vendidas. Esta comparación entre lotes es la que permite decidir a qué proveedor volver a comprar.
+
+\subsubsection*{Consulta 3. Prendas sobre el umbral de días sin venta}
+
+\textbf{Pregunta de negocio:} ¿qué prendas conviene rematar? Es la misma condición que usa la automatización de la sección 3.5.
+\begin{lstlisting}
+SELECT p.id_prenda, p.tipo, p.talla, l.fecha_recepcion,
+       CAST(julianday('now') - julianday(l.fecha_recepcion) AS INTEGER) AS dias_sin_venta,
+       c.umbral_dias
+FROM Prenda p JOIN Lote l ON p.id_lote = l.id_lote
+JOIN Configuracion c ON c.id_config = 1
+WHERE p.estado = 'disponible'
+  AND julianday('now') - julianday(l.fecha_recepcion) > c.umbral_dias
+ORDER BY dias_sin_venta DESC;
+\end{lstlisting}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2311\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1576\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2416\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1996\linewidth-2\tabcolsep\relax}}
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{talla}} & \textbf{\textbf{\texttt{dias\_\allowbreak{}sin\_\allowbreak{}venta}}} & \textbf{\textbf{\texttt{umbral\_\allowbreak{}dias}}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{\texttt{id\_\allowbreak{}prenda}}} & \textbf{\textbf{tipo}} & \textbf{\textbf{talla}} & \textbf{\textbf{\texttt{dias\_\allowbreak{}sin\_\allowbreak{}venta}}} & \textbf{\textbf{\texttt{umbral\_\allowbreak{}dias}}} \\
+\hline
+\endhead
+7 & blusa & M & 60 & 30 \\
+\hline
+8 & vestido & L & 60 & 30 \\
+\hline
+9 & falda & S & 60 & 30 \\
+\hline
+15 & abrigo & M & 35 & 30 \\
+\hline
+16 & chaqueta & L & 35 & 30 \\
+\hline
+17 & blusa & M & 35 & 30 \\
+\hline
+18 & falda & L & 35 & 30 \\
+\hline
+\end{longtable}
+}
+
+
+\textbf{Interpretación.} Siete de las 13 prendas disponibles (53,8 \%) superan el umbral de 30 días: tres con 60 días y cuatro con 35. La prenda 10, que también tiene 60 días, no aparece porque ya está en remate. Estas siete son las que \texttt{alerta\_\allowbreak{}remate.py} convirtió en alertas en la primera ejecución (sección 3.6); con umbral 50 solo quedan las tres de 60 días.
+
+\section{La aplicación: cómo funciona y qué contenidos del curso aplica}
+
+Sobre la base de datos de la sección 4 se construyó una aplicación web local (Streamlit) para Belén. Se abre en el navegador del computador o del celular (RNF-01) y pide una clave de acceso (RNF-03). La aplicación no guarda datos por su cuenta: todo lo que muestra es el resultado de una consulta SQL y todo lo que registra es una inserción o actualización en las mismas tablas en 3FN. Así, Belén usa el modelo y las consultas de las secciones anteriores sin escribir SQL.
+
+\subsection{Pantallas, base de datos y contenidos del curso}
+
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1200\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2500\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2600\linewidth-2\tabcolsep\relax}}
+\caption{Cada pantalla de la aplicación, qué hace con la base de datos y qué contenido del curso aplica.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Pantalla}} & \textbf{\textbf{Qué hace Belén}} & \textbf{\textbf{Qué ocurre en la base de datos}} & \textbf{\textbf{Contenido del curso}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Pantalla}} & \textbf{\textbf{Qué hace Belén}} & \textbf{\textbf{Qué ocurre en la base de datos}} & \textbf{\textbf{Contenido del curso}} \\
+\hline
+\endhead
+\textbf{Inventario} & Ve cuántas prendas hay por estado y por producto (tipo y talla). & Consulta con \texttt{JOIN} y \texttt{GROUP BY} sobre Prenda y Lote. El stock es disponible más en remate. & Consultas SQL, agregación; RF-09. \\
+\hline
+\textbf{Registrar lote} & Ingresa proveedor, fecha, costo total del fardo y las prendas con su costo y precio. & Se inserta el lote y una fila de Prenda por unidad, en una sola operación: si algo falla, no queda nada a medias. & Claves primarias y foráneas, transacciones; RF-01 y RF-02. \\
+\hline
+\textbf{Registrar venta} & Elige las prendas, la clienta (existente o nueva) y el tipo de entrega. & En una sola transacción: crea la clienta si es nueva, el Pedido y el DetallePedido con el margen, y cambia la prenda a vendida. & Atomicidad, relación muchos a muchos (Pedido y Prenda), dato derivado almacenado; RF-03 a RF-05. \\
+\hline
+\textbf{Entregas} & Marca un pedido como entregado. & Actualiza la fecha de entrega del Pedido y el estado de sus prendas. & Estados con restricciones CHECK; RF-08. \\
+\hline
+\textbf{Alertas} & Cambia el umbral, revisa las prendas sobre el umbral y define el margen de remate. & La revisión inserta filas en AlertaRemate; atender la alerta calcula el precio de remate y cambia el estado de la prenda y de la alerta. & De la tarea BPMN al dato; tabla de parámetros; RF-07 y RF-10. \\
+\hline
+\textbf{Publicar} & Obtiene el texto de la ficha de la prenda para copiarlo a Instagram. & Inserta una fila en Publicacion (una prenda puede tener varias). & Relación uno a muchos; RF-06. \\
+\hline
+\textbf{Tablero} & Ve los indicadores K1 a K5. & Solo consultas de lectura sobre las tablas: no modifica nada. & Funciones de agregación y \texttt{JOIN}; indicadores (sección 7). \\
+\hline
+\end{longtable}
+}
+
+\subsection{Reglas del negocio que hace cumplir la base}
+
+Una prenda no se vende dos veces: \texttt{DetallePedido.id\_\allowbreak{}prenda} es único y la venta revisa que la prenda esté disponible o en remate, lo que ataca el problema del caso (seguir ofreciendo una prenda ya vendida). Registrar un lote, una venta o atender una alerta son transacciones: se guardan todos los cambios o ninguno, de modo que si una venta falla tampoco queda la clienta nueva. Por integridad referencial no se puede borrar una prenda con venta, por lo que la aplicación no deja eliminar del inventario los productos sin stock sin perder el historial (sección 10.2). Las restricciones CHECK limitan el estado de la prenda, el tipo de entrega y el estado de la alerta, y la tabla de parámetros admite una sola fila.
+
+\subsection{Qué se comprobó}
+
+Las 94 pruebas automáticas del repositorio pasan en una instalación limpia (Python 3.13), y el tablero muestra los mismos valores que las consultas SQL y que el informe. Con la base de prueba, todas las pantallas responden en menos de un segundo. De los 15 requisitos de la E1 (10 funcionales y 5 no funcionales), 11 quedan cubiertos, 3 parcialmente (RF-03, RF-05 y RF-06) y 1 no está cubierto (RNF-02, disponibilidad, porque la aplicación corre en el computador de quien la usa). El estado de cada requisito, dónde se implementa y con qué prueba se verifica está en \texttt{E2/\allowbreak{}docs/\allowbreak{}01-requerimientos.md}.
+
+\section{Indicadores (KPI) y objetivo (OKR)}
+
+\textbf{Objetivo.} Que Belén decida qué comprar, a qué precio vender y cuándo rematar usando datos del negocio y no la memoria. \textbf{Resultado clave medible:} que cada lote recupere al menos el doble de su costo (K4), que es la meta que la dueña declaró en el cuestionario. Para los demás indicadores todavía no hay una meta acordada con ella, y el equipo no la inventó: el tablero las muestra como «por definir con Belén».
+
+{\scriptsize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1500\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2500\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1500\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1400\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.0800\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2300\linewidth-2\tabcolsep\relax}}
+\caption{Indicadores del tablero: fórmula, fuente, meta y responsable.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{KPI}} & \textbf{\textbf{Fórmula}} & \textbf{\textbf{Fuente en el modelo}} & \textbf{\textbf{Meta}} & \textbf{\textbf{Resp.}} & \textbf{\textbf{Valor con los datos de prueba}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{KPI}} & \textbf{\textbf{Fórmula}} & \textbf{\textbf{Fuente en el modelo}} & \textbf{\textbf{Meta}} & \textbf{\textbf{Resp.}} & \textbf{\textbf{Valor con los datos de prueba}} \\
+\hline
+\endhead
+\textbf{K1} Inventario por estado & Conteo de prendas por estado. & \texttt{Prenda.estado}. & Por definir con Belén. & Belén. & Disponible 13, en remate 1, vendida 4, entregada 8. \\
+\hline
+\textbf{K2} Ventas y margen mensual & Suma de \texttt{precio\_\allowbreak{}final} y de margen por mes de venta. & DetallePedido y Pedido. & Por definir con Belén. & Belén. & 183.000 CLP de ventas y 145.000 de margen (12 prendas). \\
+\hline
+\textbf{K3} Margen bruto \% & Suma del margen / suma de \texttt{precio\_\allowbreak{}final} × 100. Complemento: margen medio = suma del margen / prendas vendidas. & DetallePedido. & Por definir con Belén. & Belén. & 79,2 \%; margen medio 12.083 por prenda. \\
+\hline
+\textbf{K4} Recuperación de la inversión por lote & Ventas del lote / \texttt{costo\_\allowbreak{}total} del lote (veces la inversión). & Lote, Prenda y DetallePedido. & \textbf{≥ 2,0 veces} (duplicar lo invertido, según Belén). & Belén. & Lotes 1, 2 y 3: 2,83, 2,43 y 1,25 (alcanzan la meta 2 de 3). \\
+\hline
+\textbf{K5} Stock sobre el umbral & Prendas disponibles con días sin venta > umbral / prendas disponibles. & Prenda, Lote y Configuracion. & Por definir con Belén. & Belén. & 7 de 13 (53,8 \%) con umbral 30; 3 de 13 (23,1 \%) con umbral 50. \\
+\hline
+\end{longtable}
+}
+
+\textbf{Qué decide cada indicador.} K1: qué hay para vender hoy y cuánto está en remate. K2 y K3: si el negocio gana lo que Belén cree y qué prendas dejan más margen. K4: a qué proveedor volver a comprar y qué lotes aún no recuperan el doble (hoy el lote 3, con 2 de 8 prendas vendidas en 10 días). K5: cuánto del stock envejece y cuándo rematar, con el mismo criterio de la alerta automática.
+
+Todos los valores salen de consultas SQL sobre la base (sección 5.2 y \texttt{E2/\allowbreak{}docs/\allowbreak{}05-kpi-dashboard.md}). El tablero avisa que los datos son ficticios y muestra la fórmula, la fuente, la meta y el responsable de cada indicador. Ricardo García cierra con la dueña la definición final y las metas, que no se editan desde la aplicación (sección 10.2).
+
+\section{Ética y protección de datos (Ley 21.719)}
+
+La Ley 21.719 de protección de datos personales entra en vigor el 1 de diciembre de 2026 y alcanza al SIG, porque guarda datos de las clientas. El sistema trata solo tres datos de cada una (nombre, contacto y comuna; los dos últimos son opcionales) y el historial de compras que se deduce de sus pedidos. Se retomaron los cinco riesgos de la E1, se agregó uno sobre el inventario y se definieron medidas.
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2500\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5000\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2500\linewidth-2\tabcolsep\relax}}
+\caption{Riesgos de uso de datos, medidas y estado.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Riesgo}} & \textbf{\textbf{Medida}} & \textbf{\textbf{Estado}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Riesgo}} & \textbf{\textbf{Medida}} & \textbf{\textbf{Estado}} \\
+\hline
+\endhead
+\textbf{1. Uso inadecuado de datos personales} & Se piden solo nombre, contacto y comuna; las pruebas usan clientas ficticias («Clienta Prueba 1 a 4»). Antes de usar datos reales hay que definir la finalidad e informar a las clientas. & Aplicada en el prototipo; finalidad e información, pendientes. \\
+\hline
+\textbf{2. Datos personales en GitHub} & El repositorio es público y solo contiene datos ficticios. La base de datos, el registro de alertas y la clave de acceso quedan fuera del control de versiones, y se revisan los archivos antes de cada publicación. & Aplicada. \\
+\hline
+\textbf{3. Automatización con acceso a información sensible} & El script de alertas solo lee Configuracion, Prenda y Lote, y solo escribe en AlertaRemate; no toca los datos de las clientas. & Aplicada. \\
+\hline
+\textbf{4. Sin forma de ejercer derechos} (acceso, rectificación, eliminación) & La limitación queda documentada. Antes de usar datos reales, Alta Facha debe contar con un procedimiento para recibir y atender esas solicitudes. & Pendiente: condición previa al uso real. \\
+\hline
+\textbf{5. Retención o pérdida de información} & Se recomienda definir cuánto tiempo se conservan los datos y eliminarlos al terminar su uso, y hacer respaldos periódicos de la base SQLite en un lugar protegido. & Pendiente: recomendación. \\
+\hline
+\textbf{6. Inconsistencias entre ventas e inventario} & Cada venta se registra en una transacción y valida la disponibilidad antes de confirmar; una prenda vendida no se puede vender de nuevo. & Aplicada y probada. \\
+\hline
+\end{longtable}
+}
+
+Además, el acceso a la aplicación exige una clave (RNF-03) guardada en un archivo local que no se publica. Con ello se protegen los datos de las clientas y los márgenes, aunque con una sola clave y un solo usuario (sección 10.2). No se debe cargar información real mientras no estén resueltos los riesgos 4 y 5.
+
+\newpage
+\section{Guía breve del trabajo}
+
+El repositorio contiene todo el respaldo del informe, y el README de la carpeta \texttt{E2/} explica cómo levantar la aplicación en cinco pasos (clonar, crear el entorno, crear la base, crear la clave y ejecutar); el detalle está en \texttt{E2/\allowbreak{}README.md}.
+
+\subsection{Cómo reproducir la base, las consultas y la aplicación}
+
+Requisitos: Python 3.12 o superior y Git; SQLite viene incluido en Python. Desde la carpeta \texttt{E2/app} del repositorio clonado:
+\begin{lstlisting}
+git clone https://github.com/hctrsa04/ICN292_P101_Proyecto_G6
+cd ICN292_P101_Proyecto_G6/E2/app
+python3 -m venv .venv && source .venv/bin/activate   # Windows: py -m venv .venv
+pip install -r requirements.txt
+python crear_bd.py                       # crea data/altafacha.db con datos de prueba
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml   # y escribir la clave
+streamlit run app/main.py                # abrir http://localhost:8501 y entrar al Tablero
+\end{lstlisting}
+
+Otros comandos útiles: \texttt{python probar\_\allowbreak{}consultas.py}, \texttt{python alerta\_\allowbreak{}remate.py} y \texttt{python -m unittest discover -s tests}.
+Con la base recién creada, \texttt{probar\_\allowbreak{}consultas.py} muestra 14 prendas en stock, 12 vendidas en 7 pedidos y 7 sobre el umbral de 30 días; \texttt{alerta\_\allowbreak{}remate.py} genera 7 alertas la primera vez y ninguna la segunda; el tablero muestra los valores de la sección 7; y las 94 pruebas terminan en OK. \texttt{crear\_\allowbreak{}bd.py} elimina y recrea la base, por lo que solo debe usarse con datos de prueba.
+
+\subsection{Dónde está cada cosa}
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4300\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2500\linewidth-2\tabcolsep\relax}}
+\caption{Relación entre las secciones del informe y el repositorio.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Contenido}} & \textbf{\textbf{Archivo o carpeta}} & \textbf{\textbf{Sección del informe}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Contenido}} & \textbf{\textbf{Archivo o carpeta}} & \textbf{\textbf{Sección del informe}} \\
+\hline
+\endhead
+\textbf{Descripción general, arquitectura y puesta en marcha} & \texttt{E2/\allowbreak{}README.md} & 9 \\
+\hline
+\textbf{BPMN As-Is y To-Be finales} & \texttt{E2/\allowbreak{}assets/\allowbreak{}}; \texttt{E2/\allowbreak{}docs/\allowbreak{}02-bpmn.md} & 3.1 a 3.3 \\
+\hline
+\textbf{Automatización de la alerta de remate} & \texttt{E2/\allowbreak{}app/\allowbreak{}alerta\_\allowbreak{}remate.py}; \texttt{E2/\allowbreak{}docs/\allowbreak{}05-automatizacion.md} & 3.4 a 3.6 \\
+\hline
+\textbf{ER en 3FN, normalización y trazabilidad} & \texttt{E2/\allowbreak{}docs/\allowbreak{}04-er-3fn.md}; \texttt{E2/\allowbreak{}assets/\allowbreak{}ER\_\allowbreak{}3FN.png} & 4 \\
+\hline
+\textbf{Scripts SQL y consultas} & \texttt{E2/\allowbreak{}app/\allowbreak{}sql/\allowbreak{}}; \texttt{E2/\allowbreak{}docs/\allowbreak{}04-sql-consultas.md} & 5 \\
+\hline
+\textbf{Aplicación y pruebas} & \texttt{E2/\allowbreak{}app/\allowbreak{}}; \texttt{E2/\allowbreak{}docs/\allowbreak{}01-requerimientos.md} & 6 \\
+\hline
+\textbf{KPI y tablero} & \texttt{E2/\allowbreak{}docs/\allowbreak{}05-kpi-dashboard.md} & 7 \\
+\hline
+\textbf{Ética, supuestos y limitaciones} & \texttt{E2/\allowbreak{}docs/\allowbreak{}07-etica-ley-21719.md}; \texttt{08-supuestos.md}; \texttt{09-limitaciones.md} & 8 y 10 \\
+\hline
+\textbf{Cambios entre entregas} & \texttt{E2/\allowbreak{}docs/\allowbreak{}CHANGELOG.md} & 2 \\
+\hline
+\textbf{Caso, requerimientos y evidencia de la E1} & \texttt{E1/\allowbreak{}docs/\allowbreak{}}; \texttt{E1/\allowbreak{}evidencia-pyme/\allowbreak{}} & 2 \\
+\hline
+\end{longtable}
+}
+
+\section{Lecciones aprendidas y limitaciones honestas}
+
+\subsection{Lecciones aprendidas}
+\begin{itemize}
+\item \textbf{Preguntar cambia el problema.} El cuestionario a la dueña mostró que el stock se lleva en el catálogo de Instagram y no en un Excel, como suponía la E1. Se corrigió el planteamiento en lugar de ajustar los datos para que calzaran.
+\item \textbf{Modelar el lote ordena el costo.} Belén compra fardos y no prendas sueltas, por lo que el costo y la antigüedad del stock se conocen a nivel de lote. Agregar Lote (y DetallePedido para el precio cobrado y el margen) permitió responder las consultas de recuperación de la inversión y de antigüedad.
+\item \textbf{Normalizar antes de crear tablas.} Partir de una planilla única y llevarla a 3FN dejó a la vista las anomalías de inserción, actualización y eliminación, y justificó cada tabla en lugar de dibujarlas por intuición.
+\item \textbf{El BPMN y el ER deben contar lo mismo.} Cruzar cada tarea del To-Be con las entidades que crea, lee o actualiza (Tabla de la sección 4.7) detectó tareas sin datos de apoyo, como el margen de remate, antes de escribir el SQL.
+\item \textbf{Las transacciones evitan los errores del Excel.} Registrar una venta toca cuatro tablas; hacerlo en una sola transacción impide que quede una venta sin descontar el stock, el error que más preocupaba en el caso.
+\item \textbf{Probar contra los datos esperados.} Comparar el tablero con las consultas y con este informe permitió corregir diferencias (como la hora UTC de SQLite, que cambiaba el día después de las 21:00) y retirar indicadores sin respaldo.
+\end{itemize}
+
+\newpage
+\subsection{Limitaciones}
+{\footnotesize
+\setlength{\tabcolsep}{3pt}\arrayrulecolor[gray]{0.7}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2700\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4300\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3000\linewidth-2\tabcolsep\relax}}
+\caption{Limitaciones del trabajo.}\\
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Limitación}} & \textbf{\textbf{Efecto}} & \textbf{\textbf{Qué haría falta}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor[HTML]{D9EAF7}\textbf{\textbf{Limitación}} & \textbf{\textbf{Efecto}} & \textbf{\textbf{Qué haría falta}} \\
+\hline
+\endhead
+\textbf{Los datos son ficticios.} & Las cifras de la sección 5 demuestran que el sistema funciona, pero no son resultados reales de Alta Facha. & Cargar los lotes y ventas reales de la dueña, sin nombres ni contactos de clientas. \\
+\hline
+\textbf{No se midió el efecto en la operación real.} & No hay evidencia de que el SIG reduzca el tiempo de organización (un día según la dueña) ni los errores de stock. & Un período de uso real con una medición antes y después. \\
+\hline
+\textbf{Tres requisitos quedaron parciales.} & El precio cobrado es siempre el publicado o el de remate: no hay descuento de bienvenida del 10 \% (respuesta 4) ni precio editable (en los datos de prueba, la prenda 4 se vendió a 16.000 en vez de 18.000 y la aplicación no puede reproducirlo). No se actualizan los datos de una clienta existente y \texttt{Cliente.contacto} no es único, por lo que podría duplicarse. La ficha de publicación no incluye la foto. & Aplicar el descuento al vender, permitir editar a la clienta y definir una clave única para su contacto, y agregar la foto a la ficha. \\
+\hline
+\textbf{La disponibilidad (RNF-02) no está garantizada.} & La aplicación corre en el computador de quien la usa; si está apagado, no está disponible. & Alojarla en un equipo siempre encendido, con las medidas de seguridad correspondientes. \\
+\hline
+\textbf{Metas, clave y catálogo fijos.} & Solo K4 tiene meta; las demás dicen «por definir». La clave y las metas no se cambian desde la aplicación y los productos sin stock no se pueden quitar del inventario sin perder el historial de ventas. & Tablas o columnas nuevas (metas, clave cifrada, producto oculto); cada una requiere un cambio del esquema (	exttt{E2/\allowbreak{}docs/\allowbreak{}09-limitaciones.md}). \\
+\hline
+\textbf{La automatización no usa n8n, solo está probada en Windows y su frecuencia no está en la base.} & La programación diaria depende del Programador de tareas de Windows; la tarea equivalente para macOS y Linux (cron) está en el README, pero no se probó. El umbral se configura en Configuracion, pero la frecuencia se cambia en la tarea programada. & Probar cron o migrar el flujo a n8n con acceso a la base, y agregar la frecuencia como parámetro. \\
+\hline
+\textbf{Algunas reglas del negocio no las verifica la base.} & El margen (\texttt{precio\_\allowbreak{}final} − costo) y \texttt{Lote.cantidad\_\allowbreak{}prendas} son datos derivados que se almacenan; la base no comprueba que coincidan con el cálculo, ni que la suma de los costos de las prendas sea igual al costo del lote. & Validarlos con restricciones o disparadores, o decidir con Belén si deben coincidir. \\
+\hline
+\textbf{Faltan casos del negocio en el modelo.} & Las reservas de hasta 15 días (respuesta 5) no tienen estado propio, las ventas por WhatsApp no se distinguen de las de Instagram y no hay devoluciones. & Agregar el estado reservada y el canal en Pedido; acordar con Belén las devoluciones. \\
+\hline
+\textbf{Seguridad y datos personales.} & Una sola clave y un solo usuario; Cliente guarda datos personales (Ley 21.719) sin procedimiento de derechos ni política de retención. & Procedimiento de derechos y política de retención antes de usar datos reales (sección 8). \\
+\hline
+\end{longtable}
+}
+
+
+Lo que sí se puede afirmar: el modelo en 3FN, las consultas, la alerta y la aplicación con su tablero funcionan, se reproducen desde el repositorio y cuentan la misma historia que el BPMN To-Be.
+
+\end{document}

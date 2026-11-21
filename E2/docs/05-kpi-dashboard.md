@@ -2,7 +2,7 @@
 
 > Las rutas de código, consultas y pruebas de este documento son relativas a `E2/app/`.
 
-**Estado final (21-nov):** K1 a K5 están **implementados** en `kpis.py` (una función de solo lectura por KPI, con fórmula y fuente en su docstring) y se muestran en la pantalla **Tablero** (`app/paginas/tablero.py`). Sus valores se prueban en `tests/test_kpis.py` contra la tabla de valores de este documento. Las metas son fijas: solo K4 tiene meta definida y las demás dicen "por definir con Belén"; no se editan desde la app (limitación L4 en `Limitaciones_en_desarrollo.md`).
+**Estado final (21-nov):** K1 a K5 están **implementados** en `kpis.py` (una función de solo lectura por KPI, con fórmula y fuente en su docstring) y se muestran en la pantalla **Tablero** (`app/paginas/tablero.py`). Sus valores se prueban en `tests/test_kpis.py` contra la tabla de valores de este documento. Las metas son fijas: solo K4 tiene meta definida y las demás dicen "por definir con Belén"; no se editan desde la app (limitación L4 en `09-limitaciones.md`).
 
 **Antecedentes:** los KPI partieron semi definidos. Las consultas base están en `sql/consultas.sql`; las propuestas, en `sql/kpi_consultas_propuestas.sql`. Las **metas** se acuerdan con Belén, salvo una que ya consta en el informe E2: **duplicar lo invertido en cada lote** (K4). No inventar otras metas ni resultados.
 

@@ -14,7 +14,7 @@ NOMBRES_ESTADO = {"disponible": "Disponible", "en_remate": "En remate",
 
 # Formula, fuente y meta de cada KPI (lo pide el enunciado). Se muestran al final, en un
 # desplegable cerrado, para no recargar el tablero. Las metas no se editan desde la app
-# (limitacion L4 en ../docs/Limitaciones_en_desarrollo.md).
+# (limitacion L4 en ../docs/09-limitaciones.md).
 FICHAS_KPI = [
     ("K1 · Inventario por estado", "Conteo de prendas por estado",
      "Prenda.estado", POR_DEFINIR),
