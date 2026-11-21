@@ -1,0 +1,10 @@
+# Base de datos y registros locales (la base se recrea con crear_bd.py)
+data/*.db
+data/*.txt
+# Entorno virtual y cache de Python
+.venv/
+__pycache__/
+# Clave de acceso de la app (NO subir). El ejemplo si se sube.
+.streamlit/secrets.toml
+# Archivos del sistema
+.DS_Store

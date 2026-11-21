@@ -1,0 +1,5 @@
+# SIG Alta Facha - dependencias directas (Python 3.12)
+# Verificado en entorno limpio con Python 3.12.3 y SQLite 3.45.1
+# Las pruebas usan unittest (biblioteca estandar): no hay dependencias de prueba.
+streamlit==1.67.0
+pandas==3.1.1
